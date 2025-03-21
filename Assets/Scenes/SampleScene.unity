@@ -435,8 +435,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1196204841}
+  - component: {fileID: 1196204842}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: TCP_Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -457,6 +458,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1196204842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196204840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0e10974cb127e64b8201a730c301083, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TCPIP_name: 192.168.104.44
+  TCP_Data: 
 --- !u!1 &2026480008
 GameObject:
   m_ObjectHideFlags: 0
