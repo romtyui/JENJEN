@@ -460,6 +460,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: "\u59EC\u5854(\u4FEE\u597D)"
       objectReference: {fileID: 0}
+    - target: {fileID: 2223639932434330405, guid: a6da3a90ecd352a4bb2798f5398aec9b, type: 3}
+      propertyPath: m_Animation
+      value: 
+      objectReference: {fileID: 4781951162920444690, guid: a6da3a90ecd352a4bb2798f5398aec9b, type: 3}
+    - target: {fileID: 2223639932434330405, guid: a6da3a90ecd352a4bb2798f5398aec9b, type: 3}
+      propertyPath: m_Animations.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223639932434330405, guid: a6da3a90ecd352a4bb2798f5398aec9b, type: 3}
+      propertyPath: 'm_Animations.Array.data[0]'
+      value: 
+      objectReference: {fileID: 4781951162920444690, guid: a6da3a90ecd352a4bb2798f5398aec9b, type: 3}
+    - target: {fileID: 2223639932434330405, guid: a6da3a90ecd352a4bb2798f5398aec9b, type: 3}
+      propertyPath: 'm_Animations.Array.data[1]'
+      value: 
+      objectReference: {fileID: 4781951162920444690, guid: cc0523151685f954ebec1a3dd95148ce, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
