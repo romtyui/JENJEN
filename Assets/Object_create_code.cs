@@ -6,16 +6,21 @@ using UnityEngine.Playables;
 public class Object_create_code : MonoBehaviour
 {
     public Image_Recognition_script IRS;
-    [Header("±±¨î¥Í¦¨")]
+    [Header("ï¿½ï¿½ï¿½ï¿½Í¦ï¿½")]
     public bool trunBT;
     [SerializeField]
     private string Obj_Data_name, Color_Data_name, OGData_name;
     public GameObject[] create_Objs;
     public GameObject create_pOS;
+    
+    [SerializeField]Transform Obstacle_Spawn;
+    [SerializeField]Transform[] Bridge_Spawn;
 
-    public enum OrderStatus { Obstacle/*»ÙÃªª«*/, Bridge/*¾ô*/, Null/*¤£­n°Ê§@*/ };
-    [Header("¥Í¦¨ª«¥óª¬ºA")]
+    public enum OrderStatus { Obstacle/*ï¿½ï¿½Ãªï¿½ï¿½*/, Bridge/*ï¿½ï¿½*/, Null/*ï¿½ï¿½ï¿½nï¿½Ê§@*/ };
+    [Header("ï¿½Í¦ï¿½ï¿½ï¿½ï¿½óª¬ºA")]
     public OrderStatus status;
+
+    public player_control corner;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
@@ -29,7 +34,7 @@ public class Object_create_code : MonoBehaviour
     void Update()
     {
         //int i = -1;
-        ////´ú¸Õ¥Î¥N½X
+        ////ï¿½ï¿½ï¿½Õ¥Î¥Nï¿½X
         //if(IRS.TCP_Data != null) 
         //{
         //    Data_name = IRS.TCP_Data;
@@ -52,7 +57,7 @@ public class Object_create_code : MonoBehaviour
         //    Instantiate(create_Objs[i], create_pOS.transform);
         //    trunBT = false;
         //}
-        //¹ê»Ú¥N½X
+        //ï¿½ï¿½Ú¥Nï¿½X
         if (trunBT == true)
         {
             string[] parts = IRS.TCP_Data.Split('_');
@@ -73,11 +78,11 @@ public class Object_create_code : MonoBehaviour
             status = newState;
             Obj_Data_name = null;
             Color_Data_name = null;
-            Debug.Log("ª¬ºA¤w§ï¬°¡G" + status);
+            Debug.Log("ï¿½ï¿½ï¿½Aï¿½wï¿½ï¬°ï¿½G" + status);
         }
         else
         {
-            Debug.LogWarning("µL®Äªºª¬ºA¡G" + data);
+            Debug.LogWarning("ï¿½Lï¿½Äªï¿½ï¿½ï¿½ï¿½Aï¿½G" + data);
         }
     }
     void Status_List() 
@@ -85,15 +90,16 @@ public class Object_create_code : MonoBehaviour
         switch (status) 
         {
             case OrderStatus.Obstacle:
-                Instantiate(create_Objs[0], create_pOS.transform);
-                /*­n¥Í¦¨ª«¥óµ{¦¡*/
+                Instantiate(create_Objs[0], Obstacle_Spawn);
+                /*ï¿½nï¿½Í¦ï¿½ï¿½ï¿½ï¿½ï¿½{ï¿½ï¿½*/
                 Obj_Data_name = "Null";
                 Color_Data_name = "Null";
                 Status_Switch("Null");
                 break;
             case OrderStatus.Bridge:
-                Instantiate(create_Objs[1], create_pOS.transform);
-                /*­n¥Í¦¨ª«¥óµ{¦¡*/
+                int i =((corner.count == 3 ) ? 0 : 1);
+                Instantiate(create_Objs[1], Bridge_Spawn[i]);
+                /*ï¿½nï¿½Í¦ï¿½ï¿½ï¿½ï¿½ï¿½{ï¿½ï¿½*/
                 Obj_Data_name = "Null";
                 Color_Data_name = "Null";
                 Status_Switch("Null");

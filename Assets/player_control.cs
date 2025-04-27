@@ -2,16 +2,16 @@ using UnityEngine;
 
 public class player_control : MonoBehaviour
 {
-    [Header("Ä²µo¾¹")]
+    [Header("Ä²ï¿½oï¿½ï¿½")]
     public Object_create_code OCC;
-    [Header("¥X¥ÍÂI")]
+    [Header("ï¿½Xï¿½ï¿½ï¿½I")]
     public Transform oringal_position;
-    [Header("­«¥ÍÂI")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ï¿½I")]
     public Transform restart_position;
-    [Header("ÂàÅs§PÂ_ÂI")]
+    [Header("ï¿½ï¿½ï¿½sï¿½Pï¿½_ï¿½I")]
     public GameObject[] Turning_points;
-    [Header("°O¼Æ¾¹")]
-    public int next_Counter,last_Counter;
+    [Header("ï¿½Oï¿½Æ¾ï¿½")]
+    public int next_Counter,last_Counter,count;
     public bool turning_BT;
     [SerializeField]
     private float speed;
@@ -31,9 +31,9 @@ public class player_control : MonoBehaviour
         if (turning_BT)
         {
             transform.position = Vector3.MoveTowards(
-            transform.position,       // ¥Ø«e¦ì¸m
+            transform.position,       // ï¿½Ø«eï¿½ï¿½m
             Turning_points[((test == true) ? next_Counter : last_Counter)].transform.position,
-            speed * Time.deltaTime     // ¨C¬í²¾°Ê¦h¤Ö
+            speed * Time.deltaTime     // ï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½Ê¦hï¿½ï¿½
             );
         }
     }
@@ -41,6 +41,7 @@ public class player_control : MonoBehaviour
     {
         if (other.gameObject.tag == "Turning_poimt") 
         {
+            count = other.gameObject.GetComponent<countpoint_code>().count_num;
             next_Counter = ((other.gameObject.GetComponent<countpoint_code>().count_num + 1 < Turning_points.Length-1) ? other.gameObject.GetComponent<countpoint_code>().count_num+1 : 0); 
             last_Counter = ((other.gameObject.GetComponent<countpoint_code>().count_num - 1 > -1 ) ? other.gameObject.GetComponent<countpoint_code>().count_num-1 : Turning_points.Length-1);
             turning_BT = false;
