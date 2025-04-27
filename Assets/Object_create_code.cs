@@ -58,7 +58,7 @@ public class Object_create_code : MonoBehaviour
             string[] parts = IRS.TCP_Data.Split('_');
             Obj_Data_name = parts[0];
             Color_Data_name = parts[1];
-            trunBT = false;
+            //trunBT = false;
         }
         if (Obj_Data_name != "" && Color_Data_name != "")
         {

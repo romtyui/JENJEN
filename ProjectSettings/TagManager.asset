@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Turning_poimt
   - obstacle
+  - Teleport_point
+  - rock
+  - event_checkpoint
   layers:
   - Default
   - TransparentFX

@@ -2,18 +2,25 @@ using UnityEngine;
 
 public class obstacles_code : MonoBehaviour
 {
-    public Transform player_transform;
+
     public float height;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        player_transform = GameObject.FindWithTag("Player").transform;
-        this.transform.position = player_transform.position+new Vector3(0, height, 0);
+        this.transform.position = new Vector3(2.1099999f, -4.92999983f, -0.550000012f); 
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "rock")
+        {
+            bool activeState = false;
+            other.SendMessage("SetActiveState", activeState);
+        }
     }
 }
