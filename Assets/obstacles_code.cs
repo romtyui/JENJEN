@@ -7,7 +7,6 @@ public class obstacles_code : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        this.transform.position = new Vector3(2.1099999f, -4.92999983f, -0.550000012f); 
     }
 
     // Update is called once per frame
@@ -17,10 +16,14 @@ public class obstacles_code : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other.name);
         if (other.gameObject.tag == "rock")
         {
+ 
             bool activeState = false;
-            other.SendMessage("SetActiveState", activeState);
+            var rockScript = other.transform.parent.GetComponent<rock_obstacle_code>();
+            rockScript.GetComponent<rock_obstacle_code>().turn = true;
+            this.gameObject.SetActive(false);
         }
     }
 }

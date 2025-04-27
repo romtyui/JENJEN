@@ -4,6 +4,7 @@ public class rock_obstacle_code : MonoBehaviour
 {
     public GameObject[] rocks;
     public GameObject obstacle;
+    public bool turn;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -13,14 +14,15 @@ public class rock_obstacle_code : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-    void SetActiveState(bool isActive)
-    {
-        obstacle.SetActive(true);
-        for (int i = 0; i < rocks.Length; i++) 
+        if (turn) 
         {
-            rocks[i].SetActive(isActive);
+            obstacle.SetActive(true);
+            for (int i = 0; i < rocks.Length; i++)
+            {
+                rocks[i].SetActive(false);
+            }
+            turn = false;
         }
     }
+
 }

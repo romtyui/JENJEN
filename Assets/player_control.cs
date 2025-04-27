@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class player_control : MonoBehaviour
@@ -41,6 +43,7 @@ public class player_control : MonoBehaviour
     {
         if (other.gameObject.tag == "Turning_poimt") 
         {
+            this.gameObject.transform.position = other.gameObject.transform.position;
             count = other.gameObject.GetComponent<countpoint_code>().count_num;
             next_Counter = ((other.gameObject.GetComponent<countpoint_code>().count_num + 1 < Turning_points.Length-1) ? other.gameObject.GetComponent<countpoint_code>().count_num+1 : 0); 
             last_Counter = ((other.gameObject.GetComponent<countpoint_code>().count_num - 1 > -1 ) ? other.gameObject.GetComponent<countpoint_code>().count_num-1 : Turning_points.Length-1);
@@ -48,7 +51,12 @@ public class player_control : MonoBehaviour
         }
         if (other.gameObject.tag == "Teleport_point")
         {
+            var tp = other.GetComponent<Take_the_stairs_checkpoint>();
+            StartCoroutine(WaitAndDoSomething(tp.TP_position));
             this.transform.position = other.GetComponent<Take_the_stairs_checkpoint>().TP_position.transform.position;
+            
+            other.GetComponent<Take_the_stairs_checkpoint>().TP_position.SetActive(false);
+            
         }
         if (other.gameObject.tag == "event_checkpoint")
         {
@@ -58,5 +66,13 @@ public class player_control : MonoBehaviour
         {
             this.transform.position = restart_position.position;
         }
+    }
+    IEnumerator WaitAndDoSomething(GameObject other)
+    {
+        // 等待 2 秒
+        yield return new WaitForSeconds(2f);
+
+        // 2秒後執行這段
+        other.SetActive(true);
     }
 }
