@@ -9,6 +9,7 @@ TagManager:
   - Teleport_point
   - rock
   - event_checkpoint
+  - event_end
   layers:
   - Default
   - TransparentFX

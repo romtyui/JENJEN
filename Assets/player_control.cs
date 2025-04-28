@@ -66,6 +66,11 @@ public class player_control : MonoBehaviour
         {
             this.transform.position = restart_position.position;
         }
+        if (other.gameObject.tag == "event_end")
+        {
+            turning_BT = false ;
+            this.gameObject.transform.position = Turning_points[count].transform.position;
+        }
     }
     IEnumerator WaitAndDoSomething(GameObject other)
     {
