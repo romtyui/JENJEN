@@ -8,13 +8,13 @@ public class Object_create_code : MonoBehaviour
     public Image_Recognition_script IRS;
     [Header("����ͦ�")]
     public bool trunBT;
-    [SerializeField]
-    private string Obj_Data_name, Color_Data_name, OGData_name;
+
+    [SerializeField] private string Obj_Data_name, Color_Data_name, OGData_name;
     public GameObject[] create_Objs;
     public GameObject create_pOS;
-    
-    [SerializeField]Transform Obstacle_Spawn;
-    [SerializeField]Transform[] Bridge_Spawn;
+    [SerializeField] private GameObject player;
+    //[SerializeField]Transform Obstacle_Spawn;
+    [SerializeField]Transform Instantiat_Spawn;
 
     public enum OrderStatus { Obstacle/*��ê��*/, Bridge/*��*/, Null/*���n�ʧ@*/ };
     [Header("�ͦ����󪬺A")]
@@ -28,6 +28,7 @@ public class Object_create_code : MonoBehaviour
     void Start()
     {
         IRS = GetComponent<Image_Recognition_script>();
+        player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
@@ -69,7 +70,10 @@ public class Object_create_code : MonoBehaviour
         if (Obj_Data_name != "" && Color_Data_name != "")
         {
             Status_Switch(Obj_Data_name);
-            Status_List();
+            int i = gameObject.GetComponent<player_control>().count;
+            GameObject TF = gameObject.GetComponent<player_control>().Turning_points[i];
+            Instantiat_Spawn = TF.GetComponent<countpoint_code>().objtransform.transform;
+            Status_List(Instantiat_Spawn);
         }
     }
     void Status_Switch(string data)
@@ -86,12 +90,12 @@ public class Object_create_code : MonoBehaviour
             Debug.LogWarning("�L�Ī����A�G" + data);
         }
     }
-    void Status_List() 
+    void Status_List(Transform Instantiat_Spawn) 
     {
         switch (status) 
         {
             case OrderStatus.Obstacle:
-                Instantiate(create_Objs[0], Obstacle_Spawn);
+                Instantiate(create_Objs[0], Instantiat_Spawn);
                 /*�n�ͦ�����{��*/
                 Obj_Data_name = "Null";
                 Color_Data_name = "Null";
@@ -99,7 +103,7 @@ public class Object_create_code : MonoBehaviour
                 break;
             case OrderStatus.Bridge:
                 int i =((corner.count == 3 ) ? 0 : 1);
-                Instantiate(create_Objs[1], Bridge_Spawn[i]);
+                Instantiate(create_Objs[1], Instantiat_Spawn);
                 /*�n�ͦ�����{��*/
                 Obj_Data_name = "Null";
                 Color_Data_name = "Null";
