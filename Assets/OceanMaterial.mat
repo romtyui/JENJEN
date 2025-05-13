@@ -61,7 +61,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal_Map:
-        m_Texture: {fileID: 2800000, guid: bf5b7e951b01b914881896395d6be0ee, type: 3}
+        m_Texture: {fileID: 2800000, guid: e2a48ecca96d0c545915d064040b31f7, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -104,23 +104,23 @@ Material:
     - _ClearCoatSmoothness: 0
     - _Cull: 2
     - _Cutoff: 0.5
-    - _Depth_Distance: 2.35
-    - _Depth_Strength: 0.85
+    - _Depth_Distance: 4.46
+    - _Depth_Strength: 1.61
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _Displacement_Strength: 0.75
+    - _Displacement_Strength: 0.99
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
-    - _Fresnel_Effect: 0
+    - _Fresnel_Effect: 87.5
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Metallic: 0
-    - _Normal_Strength: -0.3
-    - _Normal_Tiling: 2.81
+    - _Normal_Strength: 0.39
+    - _Normal_Tiling: 3.11
     - _OcclusionStrength: 1
-    - _Pan_Speed: 0.01
+    - _Pan_Speed: 0.02
     - _Parallax: 0.005
     - _QueueControl: 0
     - _QueueOffset: 0
@@ -139,8 +139,8 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _bottom: {r: 0.59607846, g: 0.3729748, b: 0.19215685, a: 0}
-    - _top: {r: 0, g: 0, b: 0, a: 0}
+    - _bottom: {r: 0.10693307, g: 0.254717, b: 0.25334057, a: 0}
+    - _top: {r: 0.04614729, g: 0.020469919, b: 0.18867922, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &8217295671220833251
