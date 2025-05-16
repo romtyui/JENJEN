@@ -274,6 +274,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   count_num: 3
   objtransform: {fileID: 1570081259}
+  dires: 0100000002000000
 --- !u!65 &21453975
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -315,7 +316,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &39011639
 Transform:
   m_ObjectHideFlags: 0
@@ -391,7 +392,7 @@ Transform:
   m_GameObject: {fileID: 73898577}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -45.56, y: 28.6, z: 28.79}
+  m_LocalPosition: {x: -46.74, y: 28.6, z: 28.15}
   m_LocalScale: {x: 0.20268707, y: 0.20268707, z: 0.20268707}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -411,6 +412,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   count_num: 0
   objtransform: {fileID: 0}
+  dires: 0200000003000000
 --- !u!65 &73898580
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -543,7 +545,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!199 &293437651
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -6804,7 +6806,7 @@ Transform:
   m_GameObject: {fileID: 507128808}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27.481, y: 33.12, z: 28.77}
+  m_LocalPosition: {x: -27.74, y: 33.12, z: 28.77}
   m_LocalScale: {x: 0.20268707, y: 0.20268707, z: 0.20268707}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6824,6 +6826,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   count_num: 1
   objtransform: {fileID: 1653954424}
+  dires: 0300000004000000
 --- !u!65 &507128811
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7206,7 +7209,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &660571317
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7319,7 +7322,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a6da3a90ecd352a4bb2798f5398aec9b, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a6da3a90ecd352a4bb2798f5398aec9b, type: 3}
       propertyPath: m_LocalRotation.x
@@ -7327,7 +7330,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a6da3a90ecd352a4bb2798f5398aec9b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a6da3a90ecd352a4bb2798f5398aec9b, type: 3}
       propertyPath: m_LocalRotation.z
@@ -7339,7 +7342,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a6da3a90ecd352a4bb2798f5398aec9b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -180
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a6da3a90ecd352a4bb2798f5398aec9b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -8930,6 +8933,7 @@ GameObject:
   - component: {fileID: 1196204841}
   - component: {fileID: 1196204842}
   - component: {fileID: 1196204843}
+  - component: {fileID: 1196204844}
   m_Layer: 0
   m_Name: TCP_Manager
   m_TagString: Untagged
@@ -8959,7 +8963,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1196204840}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e0e10974cb127e64b8201a730c301083, type: 3}
   m_Name: 
@@ -8991,6 +8995,18 @@ MonoBehaviour:
   Instantiat_Spawn: {fileID: 0}
   status: 0
   corner: {fileID: 1957237750}
+--- !u!114 &1196204844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196204840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e411a5d6ca71f1f40ab79b217e09f0ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1244699420
 GameObject:
   m_ObjectHideFlags: 0
@@ -10324,6 +10340,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   count_num: 2
   objtransform: {fileID: 303621174}
+  dires: 
 --- !u!65 &1781072333
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11180,6 +11197,7 @@ MonoBehaviour:
   turning_BT: 0
   speed: 1
   test: 1
+  arduinor: {fileID: 0}
 --- !u!54 &1957237751
 Rigidbody:
   m_ObjectHideFlags: 0

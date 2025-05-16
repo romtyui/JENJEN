@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class player_control : MonoBehaviour
 {
-    [Header("Ĳ�o��")]
+    [Header("TCP設定")]
     public Object_create_code OCC;
-    [Header("�X���I")]
+    [Header("位置設置")]
     public Transform oringal_position;
-    [Header("�����I")]
+    [Header("存檔點")]
     public Transform restart_position;
-    [Header("���s�P�_�I")]
+    [Header("轉角判斷點列表")]
     public GameObject[] Turning_points;
-    [Header("�O�ƾ�")]
+    [Header("轉彎參數")]
     public int next_Counter,last_Counter,count;
     public bool turning_BT;
     [SerializeField]
@@ -21,10 +21,12 @@ public class player_control : MonoBehaviour
     [SerializeField]
     private bool test;
 
+    public arduino_contect arduinor;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         this.gameObject.transform.position = oringal_position.position;
+        arduinor = FindAnyObjectByType<arduino_contect>();
     }
 
     // Update is called once per frame
