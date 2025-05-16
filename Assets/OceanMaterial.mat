@@ -104,7 +104,7 @@ Material:
     - _ClearCoatSmoothness: 0
     - _Cull: 2
     - _Cutoff: 0.5
-    - _Depth_Distance: 3.02
+    - _Depth_Distance: -0.55
     - _Depth_Strength: 3.06
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
@@ -112,15 +112,15 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
-    - _Fresnel_Effect: 87.5
+    - _Fresnel_Effect: 79.19
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Metallic: 0
-    - _Normal_Strength: 0.16
+    - _Normal_Strength: 0.35
     - _Normal_Tiling: 1.23
     - _OcclusionStrength: 1
-    - _Pan_Speed: 0.02
+    - _Pan_Speed: 0.01
     - _Parallax: 0.005
     - _QueueControl: 0
     - _QueueOffset: 0
@@ -139,8 +139,8 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _bottom: {r: 0.16014943, g: 0.21952951, b: 0.31320748, a: 0.22745098}
-    - _top: {r: 0.046116035, g: 0.17744389, b: 0.19245279, a: 0}
+    - _bottom: {r: 0.012415453, g: 0.027890874, b: 0.084905684, a: 1}
+    - _top: {r: 0.6792453, g: 0.37041757, b: 0, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &8217295671220833251
