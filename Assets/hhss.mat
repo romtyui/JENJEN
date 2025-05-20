@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: New Material
+  m_Name: hhss
   m_Shader: {fileID: -6465566751694194690, guid: d1c2823039768424a989ea5a1b4e3b8c, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -49,7 +49,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _HoloTexture:
-        m_Texture: {fileID: 2800000, guid: 22b588767b6701942b0545e0f3aa95b7, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6680a766e7cd89f4997a1c26b536ec0a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -77,11 +77,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _cubemap:
-        m_Texture: {fileID: 8900000, guid: 3b61a4965ad81044d8fd04c6738c08bb, type: 3}
+        m_Texture: {fileID: 8900000, guid: fca5a57d63136f6428a1d31d1ab2c777, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _mask:
-        m_Texture: {fileID: 2800000, guid: cb29aea5b6bd1a04db90a62d66c7d708, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0ba779d529bb03c46b72d28724604a1e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -130,10 +130,10 @@ Material:
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _distortionAmount: 10.37
+    - _distortionAmount: 41.01
     - _foamscale: 217.1
     - _maskscale: 0.11
-    - _offsetAmount: 12.27
+    - _offsetAmount: 1.2
     - _speed: 11.1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
