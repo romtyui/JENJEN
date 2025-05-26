@@ -9,6 +9,7 @@ public class camera_control : MonoBehaviour
     [Range(0, 5)]
     public float speed = 1f;      // 旋轉速度（圈速）
     [SerializeField]private float angle = 0f;
+    [SerializeField] private Transform end_position;
     public enum AngleOption
     {
         Deg0 = 0,
@@ -22,7 +23,7 @@ public class camera_control : MonoBehaviour
     public bool turn,event_playing;
     void Update()
     {
-        if (!event_playing) 
+        if (!event_playing)
         {
             this.transform.LookAt(centerPoint);
             if (turn)
@@ -58,7 +59,13 @@ public class camera_control : MonoBehaviour
 
             transform.position = new Vector3(x, y, z);
         }
-        
+        else 
+        {
+            this.gameObject.transform.position = end_position.position;
+            this.gameObject.transform.rotation = end_position.rotation;
+
+        }
+
 
     }
 }

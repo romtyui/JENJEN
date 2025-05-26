@@ -15,6 +15,7 @@ public class player_control : MonoBehaviour
     [Header("轉彎參數")]
     public int next_Counter,last_Counter,count;
     public bool turning_BT;
+    [SerializeField] private float[] turning_number;
     [SerializeField]
     private float speed;
 
@@ -22,6 +23,7 @@ public class player_control : MonoBehaviour
     private bool test;
 
     public arduino_contect arduinor;
+    public camera_control camera;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -32,6 +34,17 @@ public class player_control : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (arduinor.isStable) 
+        {
+            if (turning_number[0] == arduinor.data_name)
+            {
+                test = true;
+            }
+            else if (turning_number[1] == arduinor.data_name) 
+            {
+                test = false;
+            }
+        }
         if (turning_BT)
         {
             transform.position = Vector3.MoveTowards(
@@ -50,6 +63,17 @@ public class player_control : MonoBehaviour
             next_Counter = ((other.gameObject.GetComponent<countpoint_code>().count_num + 1 < Turning_points.Length-1) ? other.gameObject.GetComponent<countpoint_code>().count_num+1 : 0); 
             last_Counter = ((other.gameObject.GetComponent<countpoint_code>().count_num - 1 > -1 ) ? other.gameObject.GetComponent<countpoint_code>().count_num-1 : Turning_points.Length-1);
             turning_BT = false;
+            if (other.gameObject.name == "Turning_C_end")
+            {
+                camera.event_playing = true;
+            }
+            else 
+            {
+                for (int i = 0; i < turning_number.Length; i++)
+                {
+                    turning_number[i] = other.gameObject.GetComponent<countpoint_code>().dires[i];
+                }
+            }
         }
         if (other.gameObject.tag == "Teleport_point")
         {
