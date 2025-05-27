@@ -9924,10 +9924,10 @@ MonoBehaviour:
   - {fileID: 567738592}
   - {fileID: 2026652335}
   animations_time:
-  - 0.33
-  - 0.7
-  - 0.39
-  - 0.1
+  - 1.2
+  - 1.32
+  - 3.8
+  - 3.16
 --- !u!114 &1481677330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11243,7 +11243,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b240bf9401520cf4e90158af90547e8d, type: 2}
+  - {fileID: 2100000, guid: e742f85291010d24f9aca8ef3c31469f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
