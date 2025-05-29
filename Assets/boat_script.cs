@@ -3,8 +3,8 @@ using UnityEngine;
 public class boat_script : MonoBehaviour
 {
     [SerializeField]private Transform orignal_point, endpoint;
-    [SerializeField]private float total_time;
-    [SerializeField] private float timer;
+    [SerializeField]public float total_time;
+    [SerializeField] public float timer;
     public bool stardo;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,5 +24,13 @@ public class boat_script : MonoBehaviour
             this.transform.position = Vector3.Lerp(orignal_point.position, endpoint.position, timer/total_time);
 
         }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "enemy") 
+        {
+            timer= 0;
+        }
+
     }
 }
