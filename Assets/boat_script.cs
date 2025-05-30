@@ -29,7 +29,14 @@ public class boat_script : MonoBehaviour
     {
         if (other.gameObject.tag == "enemy") 
         {
-            timer= 0;
+            if (other.gameObject.name == "Crocodile")
+            {
+                timer = 0.2f*total_time;
+            }
+        }
+        if (other.gameObject.tag == "event_checkpoint")
+        {
+            stardo = false;
         }
 
     }

@@ -12,6 +12,9 @@ public class Object_create_code : MonoBehaviour
     [SerializeField] private string Obj_Data_name, Color_Data_name, OGData_name;
     public GameObject[] create_Objs;
     public GameObject create_pOS;
+    [SerializeField] private float confirmationTime = 0.5f;
+    private float detectionTimer = 0f;
+    private string lastTCPData = "";
     [SerializeField] private GameObject player;
     //[SerializeField]Transform Obstacle_Spawn;
     [SerializeField]Transform Instantiat_Spawn;
@@ -61,20 +64,48 @@ public class Object_create_code : MonoBehaviour
         //��ڥN�X
         if (trunBT == true)
         {
-            string[] parts = IRS.TCP_Data.Split('_');
-            Obj_Data_name = parts[0];
-            Color_Data_name = parts[1];
-            trunBT = false;
+            if (IRS.TCP_Data == lastTCPData)
+            {
+                detectionTimer += Time.deltaTime;
+            }
+            else
+            {
+                detectionTimer = 0f;
+                lastTCPData = IRS.TCP_Data;
+            }
+
+            if (detectionTimer >= confirmationTime)
+            {
+                string[] parts = IRS.TCP_Data.Split('_');
+                if (parts.Length >= 2)
+                {
+                    Obj_Data_name = parts[0];
+                    Color_Data_name = parts[1];
+                }
+
+                Status_Switch(Obj_Data_name);
+
+                int i = gameObject.GetComponent<player_control>().count;
+                GameObject TF = gameObject.GetComponent<player_control>().Turning_points[i];
+                Instantiat_Spawn = TF.GetComponent<countpoint_code>().objtransform.transform;
+
+                Status_List(Instantiat_Spawn);
+
+                // 重置旗標
+                trunBT = false;
+                detectionTimer = 0f;
+                lastTCPData = "";
+            }
 
         }
-        if (Obj_Data_name != "" && Color_Data_name != "")
-        {
-            Status_Switch(Obj_Data_name);
-            int i = gameObject.GetComponent<player_control>().count;
-            GameObject TF = gameObject.GetComponent<player_control>().Turning_points[i];
-            Instantiat_Spawn = TF.GetComponent<countpoint_code>().objtransform.transform;
-            Status_List(Instantiat_Spawn);
-        }
+        //if (Obj_Data_name != "" && Color_Data_name != "")
+        //{
+        //    Status_Switch(Obj_Data_name);
+        //    int i = gameObject.GetComponent<player_control>().count;
+        //    GameObject TF = gameObject.GetComponent<player_control>().Turning_points[i];
+        //    Instantiat_Spawn = TF.GetComponent<countpoint_code>().objtransform.transform;
+        //    Status_List(Instantiat_Spawn);
+        //}
     }
     void Status_Switch(string data)
     {
