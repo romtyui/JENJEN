@@ -13,8 +13,10 @@ public class new_camera_contriol : MonoBehaviour
     [Range(0f, 5f)] public float[] camera_move_time;
     private bool hasCrocodileTriggered = false;
     private bool hasSwitchToFallTriggered = false;
+    [SerializeField] private bool hasremains_firstTriggered = false;
 
-    public enum Now_Scenes { Crocodile, Crocodile_appear, SwitchToFall,first,none }
+
+    public enum Now_Scenes { Crocodile, Crocodile_appear, SwitchToFall,first,remains_first,none }
     public Now_Scenes status;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -37,6 +39,11 @@ public class new_camera_contriol : MonoBehaviour
             status = Now_Scenes.SwitchToFall;
             hasSwitchToFallTriggered = true;
 
+        }
+        if (boat.end == true && !hasremains_firstTriggered) 
+        {
+            status = Now_Scenes.remains_first;
+            hasremains_firstTriggered = true;
         }
         Switch_state();
     }
@@ -89,6 +96,10 @@ public class new_camera_contriol : MonoBehaviour
             case Now_Scenes.first:
                 this.transform.position = camera_transforms[0].position;
                 this.transform.rotation = camera_transforms[0].rotation;
+                break;
+            case Now_Scenes.remains_first:
+                camera_move(camera_transforms[1], camera_transforms[4], camera_move_time[3]);
+                boat.canva.GetComponent<Animation>().Play("Transitions");
                 break;
             case Now_Scenes.none:
                 break;

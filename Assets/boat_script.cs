@@ -5,8 +5,13 @@ public class boat_script : MonoBehaviour
     [SerializeField]private Transform orignal_point, endpoint;
     [SerializeField]public float total_time;
     [SerializeField] public float timer;
+    [SerializeField] private float t;
     public bool stardo;
     public Object_create_code occ;
+    public GameObject canva;
+    public Transform savepoint;
+    public bool end;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -28,6 +33,7 @@ public class boat_script : MonoBehaviour
 
         }
         
+
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -40,8 +46,24 @@ public class boat_script : MonoBehaviour
         }
         if (other.gameObject.tag == "event_checkpoint")
         {
+            stardo = false;
+            if (other.GetComponent<countpoint_code>().Save_Point != null) 
+            {
+                savepoint = other.GetComponent<countpoint_code>().Save_Point;
+                t = timer;
+            }
+        }
+        if (other.gameObject.tag == "full")
+        {
             Debug.Log(other.gameObject.name);
-
+            timer = t;
+            //this.transform.position = savepoint.position;
+        }
+        if (other.gameObject.tag == "event_end")
+        {
+            canva.SetActive(true);
+            //canva.GetComponent<Animation>().Play("Transitions");
+            end = true;
         }
 
     }
