@@ -50,6 +50,8 @@ public class new_camera_contriol : MonoBehaviour
 
         if (t / timer > 1)
         {
+            boat.stardo = true;
+
             status = Now_Scenes.none;
             t= 0f;
 
@@ -89,7 +91,6 @@ public class new_camera_contriol : MonoBehaviour
                 this.transform.rotation = camera_transforms[0].rotation;
                 break;
             case Now_Scenes.none:
-                boat.stardo = true;
                 break;
         }
     }

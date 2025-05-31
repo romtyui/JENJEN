@@ -12,8 +12,8 @@ public class Object_create_code : MonoBehaviour
     [SerializeField] private string Obj_Data_name, Color_Data_name, OGData_name;
     public GameObject[] create_Objs;
     public GameObject create_pOS;
-    [SerializeField] private float confirmationTime = 0.5f;
-    private float detectionTimer = 0f;
+    [SerializeField] public float confirmationTime = 0.5f;
+    public float detectionTimer = 0f;
     private string lastTCPData = "";
     [SerializeField] private GameObject player;
     //[SerializeField]Transform Obstacle_Spawn;

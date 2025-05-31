@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class player_control : MonoBehaviour
@@ -87,6 +88,10 @@ public class player_control : MonoBehaviour
         if (other.gameObject.tag == "event_checkpoint")
         {
             OCC.trunBT = true;
+            if (other.GetComponent<countpoint_code>().Save_Point != null) 
+            {
+                restart_position = other.GetComponent<countpoint_code>().Save_Point;
+            }
         }
         if (other.gameObject.tag == "rock")
         {

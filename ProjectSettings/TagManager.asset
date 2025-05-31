@@ -10,6 +10,7 @@ TagManager:
   - rock
   - event_checkpoint
   - event_end
+  - enermy
   layers:
   - Default
   - TransparentFX
