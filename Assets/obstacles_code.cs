@@ -33,10 +33,18 @@ public class obstacles_code : MonoBehaviour
         if (other.gameObject.tag == "brige")
         {
 
-            bool activeState = false;
-            var rockScript = other.transform.parent.GetComponent<rock_obstacle_code>();
-            rockScript.GetComponent<rock_obstacle_code>().turn = true;
-            this.gameObject.SetActive(false);
+            //bool activeState = false;
+            //var rockScript = other.transform.parent.GetComponent<rock_obstacle_code>();
+            //rockScript.GetComponent<rock_obstacle_code>().turn = true;
+            //this.gameObject.SetActive(false);
+        }
+        if (other.gameObject.tag == "water")
+        {
+            other.GetComponent<No2_code>().turn = true;
+            //bool activeState = false;
+            //var rockScript = other.transform.parent.GetComponent<rock_obstacle_code>();
+            //rockScript.GetComponent<rock_obstacle_code>().turn = true;
+            //this.gameObject.SetActive(false);
         }
     }
 }

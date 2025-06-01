@@ -13,6 +13,7 @@ TagManager:
   - enermy
   - full
   - brige
+  - water
   layers:
   - Default
   - TransparentFX

@@ -118,11 +118,11 @@ public class new_camera_contriol : MonoBehaviour
                         }
                         else if (count == 7) 
                         {
-                            camera_move(camera_transforms[count], camera_transforms[7], camera_move_time[4]);
+                            camera_move(camera_transforms[5], camera_transforms[7], camera_move_time[4]);
                         }
                         else if (count == 8)
                         {
-                            camera_move(camera_transforms[count], camera_transforms[8], camera_move_time[4]);
+                            camera_move(camera_transforms[7], camera_transforms[8], camera_move_time[4]);
                         }
                         else
                         {
@@ -130,13 +130,18 @@ public class new_camera_contriol : MonoBehaviour
                         }
                     }
                 }
-                else if(!player_Control.test)
+                else if(player_Control.test == false)
                 {
-                    if (last > 3)
+                    if (last >= 3)
                     {
                         if (count == 4)
                         {
-                            camera_move(camera_transforms[next+1], camera_transforms[count+1], camera_move_time[4]);
+                            Debug.Log(count);
+                            camera_move(camera_transforms[next+1], camera_transforms[last+2], camera_move_time[4]);
+                        }
+                        else if (count == 3)
+                        {
+                            camera_move(camera_transforms[5], camera_transforms[4], camera_move_time[4]);
                         }
                         else if (count == 6)
                         {
