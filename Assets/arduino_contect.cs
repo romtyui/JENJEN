@@ -11,6 +11,7 @@ public class arduino_contect : MonoBehaviour
     [SerializeField] public bool isStable = false;
     void Start()
     {
+        DontDestroyOnLoad(this.gameObject);
         sp.Open();
         sp.ReadTimeout = 50;
         Debug.Log("Serial Port Opened!");
