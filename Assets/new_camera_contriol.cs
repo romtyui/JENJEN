@@ -14,6 +14,7 @@ public class new_camera_contriol : MonoBehaviour
     private bool hasCrocodileTriggered = false;
     private bool hasSwitchToFallTriggered = false;
     [SerializeField] private bool hasremains_firstTriggered = false;
+    public remains_animation_code rac;
 
 
     public enum Now_Scenes { Crocodile, Crocodile_appear, SwitchToFall,first,remains_first,none }
@@ -100,6 +101,7 @@ public class new_camera_contriol : MonoBehaviour
             case Now_Scenes.remains_first:
                 camera_move(camera_transforms[1], camera_transforms[4], camera_move_time[3]);
                 boat.canva.GetComponent<Animation>().Play("Transitions");
+                rac.turn = true;
                 break;
             case Now_Scenes.none:
                 break;

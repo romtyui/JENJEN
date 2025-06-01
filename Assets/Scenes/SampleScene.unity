@@ -276,6 +276,8 @@ MonoBehaviour:
   objtransform: {fileID: 1570081259}
   Save_Point: {fileID: 0}
   dires: 0100000002000000
+  next: 0
+  last: 0
 --- !u!65 &21453975
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -415,6 +417,8 @@ MonoBehaviour:
   objtransform: {fileID: 0}
   Save_Point: {fileID: 0}
   dires: 0200000003000000
+  next: 0
+  last: 0
 --- !u!65 &73898580
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7092,6 +7096,8 @@ MonoBehaviour:
   objtransform: {fileID: 1653954424}
   Save_Point: {fileID: 0}
   dires: 0300000004000000
+  next: 0
+  last: 0
 --- !u!65 &507128811
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9804,6 +9810,9 @@ MonoBehaviour:
   last_Counter: 0
   count: 0
   turning_BT: 0
+  rank1: 1
+  rank2: 0
+  rank3: 0
   turning_number:
   - 0
   - 0
@@ -11876,6 +11885,8 @@ MonoBehaviour:
   objtransform: {fileID: 303621174}
   Save_Point: {fileID: 0}
   dires: 
+  next: 0
+  last: 0
 --- !u!65 &1781072333
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12805,6 +12816,9 @@ MonoBehaviour:
   last_Counter: 0
   count: 0
   turning_BT: 0
+  rank1: 0
+  rank2: 0
+  rank3: 0
   turning_number:
   - 0
   - 0

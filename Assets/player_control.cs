@@ -16,6 +16,8 @@ public class player_control : MonoBehaviour
     [Header("轉彎參數")]
     public int next_Counter,last_Counter,count;
     public bool turning_BT;
+    public bool rank1,rank2,rank3;
+
     [SerializeField] private float[] turning_number;
     [SerializeField]
     private float speed;
@@ -49,32 +51,50 @@ public class player_control : MonoBehaviour
         if (turning_BT)
         {
             transform.position = Vector3.MoveTowards(
-            transform.position,       // �ثe��m
-            Turning_points[((test == true) ? next_Counter : last_Counter)].transform.position,
-            speed * Time.deltaTime     // �C�����ʦh��
-            );
+                transform.position,       // �ثe��m
+                Turning_points[((test == true) ? next_Counter : last_Counter)].transform.position,
+                speed * Time.deltaTime     // �C�����ʦh��
+                );
+            
+            
         }
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Turning_poimt") 
         {
-            this.gameObject.transform.position = other.gameObject.transform.position;
-            count = other.gameObject.GetComponent<countpoint_code>().count_num;
-            next_Counter = ((other.gameObject.GetComponent<countpoint_code>().count_num + 1 < Turning_points.Length-1) ? other.gameObject.GetComponent<countpoint_code>().count_num+1 : 0); 
-            last_Counter = ((other.gameObject.GetComponent<countpoint_code>().count_num - 1 > -1 ) ? other.gameObject.GetComponent<countpoint_code>().count_num-1 : Turning_points.Length-1);
-            turning_BT = false;
-            if (other.gameObject.name == "Turning_C_end")
+            if (rank1)
             {
-                camera.event_playing = true;
-            }
-            else 
-            {
-                for (int i = 0; i < turning_number.Length; i++)
+                this.gameObject.transform.position = other.gameObject.transform.position;
+                count = other.gameObject.GetComponent<countpoint_code>().count_num;
+                next_Counter = ((other.gameObject.GetComponent<countpoint_code>().count_num + 1 < Turning_points.Length - 1) ? other.gameObject.GetComponent<countpoint_code>().count_num + 1 : 0);
+                last_Counter = ((other.gameObject.GetComponent<countpoint_code>().count_num - 1 > -1) ? other.gameObject.GetComponent<countpoint_code>().count_num - 1 : Turning_points.Length - 1);
+                turning_BT = false;
+                if (other.gameObject.name == "Turning_C_end")
                 {
-                    turning_number[i] = other.gameObject.GetComponent<countpoint_code>().dires[i];
+                    camera.event_playing = true;
+                }
+                else
+                {
+                    for (int i = 0; i < turning_number.Length; i++)
+                    {
+                        turning_number[i] = other.gameObject.GetComponent<countpoint_code>().dires[i];
+                    }
                 }
             }
+            else if (rank2)
+            {
+                this.gameObject.transform.position = other.gameObject.transform.position;
+                count = other.gameObject.GetComponent<countpoint_code>().count_num;
+                next_Counter = other.gameObject.GetComponent<countpoint_code>().next;
+                last_Counter = other.gameObject.GetComponent<countpoint_code>().last;
+                turning_BT = false;
+            }
+            else if (rank3)
+            {
+
+            }
+            
         }
         if (other.gameObject.tag == "Teleport_point")
         {

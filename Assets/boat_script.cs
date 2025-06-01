@@ -11,6 +11,7 @@ public class boat_script : MonoBehaviour
     public GameObject canva;
     public Transform savepoint;
     public bool end;
+    public GameObject player, boat_pos;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -32,7 +33,10 @@ public class boat_script : MonoBehaviour
             this.transform.position = Vector3.Lerp(orignal_point.position, endpoint.position, timer/total_time);
 
         }
-        
+        if (!end) 
+        {
+            player.transform.position = boat_pos.transform.position;
+        }
 
     }
     private void OnTriggerEnter(Collider other)
@@ -64,6 +68,7 @@ public class boat_script : MonoBehaviour
             canva.SetActive(true);
             //canva.GetComponent<Animation>().Play("Transitions");
             end = true;
+            this.gameObject.SetActive(false);
         }
 
     }

@@ -5,6 +5,7 @@ public class countpoint_code : MonoBehaviour
     public int count_num ;
     public Transform objtransform, Save_Point;
     public int[] dires;
+    public int next,last;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
