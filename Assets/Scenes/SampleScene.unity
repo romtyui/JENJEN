@@ -7313,15 +7313,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 8be0667ef4141144895fc15052613e65, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -47.06514
+      value: -1.3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8be0667ef4141144895fc15052613e65, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 19.126207
+      value: -14.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8be0667ef4141144895fc15052613e65, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -72.5
+      value: -8.83
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8be0667ef4141144895fc15052613e65, type: 3}
       propertyPath: m_LocalRotation.w
@@ -10211,6 +10211,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 94bbe4c39afe4134ab6ea050346b0c3d, type: 2}
   - {fileID: 2100000, guid: 5cec330ed42f258489096f8fc535d8b6, type: 2}
   OC: {fileID: 0}
+  OBJ_M: []
   confirmationTime: 0.5
   detectionTimer: 0
   player: {fileID: 0}
