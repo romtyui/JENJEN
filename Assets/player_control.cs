@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static new_camera_contriol;
 
 public class player_control : MonoBehaviour
 {
@@ -23,10 +24,11 @@ public class player_control : MonoBehaviour
     private float speed;
 
     [SerializeField]
-    private bool test;
+    public bool test;
 
     public arduino_contect arduinor;
     public camera_control camera;
+    public new_camera_contriol Newcamera;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -84,11 +86,14 @@ public class player_control : MonoBehaviour
             }
             else if (rank2)
             {
-                this.gameObject.transform.position = other.gameObject.transform.position;
+                Debug.Log(other.gameObject.name);
+                //this.gameObject.transform.position = other.gameObject.transform.position;
                 count = other.gameObject.GetComponent<countpoint_code>().count_num;
                 next_Counter = other.gameObject.GetComponent<countpoint_code>().next;
                 last_Counter = other.gameObject.GetComponent<countpoint_code>().last;
                 turning_BT = false;
+                Newcamera.status = Now_Scenes.remains;
+
             }
             else if (rank3)
             {

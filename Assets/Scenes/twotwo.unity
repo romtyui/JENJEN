@@ -294,12 +294,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e3d9c332df42346a94bfc6dea19225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  count_num: 0
+  count_num: 4
   objtransform: {fileID: 0}
   Save_Point: {fileID: 0}
   dires: 0000000000000000
-  next: 4
-  last: 2
+  next: 5
+  last: 3
 --- !u!1 &35763110
 GameObject:
   m_ObjectHideFlags: 0
@@ -514,12 +514,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e3d9c332df42346a94bfc6dea19225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  count_num: 0
+  count_num: 5
   objtransform: {fileID: 0}
   Save_Point: {fileID: 0}
   dires: 0000000000000000
-  next: 4
-  last: 3
+  next: 5
+  last: 4
 --- !u!1 &157986259
 GameObject:
   m_ObjectHideFlags: 0
@@ -1229,6 +1229,10 @@ MonoBehaviour:
   - {fileID: 1977571124}
   - {fileID: 157986260}
   - {fileID: 1630002801}
+  - {fileID: 1411286357}
+  - {fileID: 445239877}
+  - {fileID: 738197227}
+  - {fileID: 1134726065}
   boat: {fileID: 1586875106}
   t: 0
   camera_move_time:
@@ -1236,8 +1240,10 @@ MonoBehaviour:
   - 1.54
   - 5
   - 0
+  - 0.53
   hasremains_firstTriggered: 0
   rac: {fileID: 210161331}
+  player_Control: {fileID: 640389620}
   status: 0
 --- !u!1 &344014810
 GameObject:
@@ -1556,7 +1562,7 @@ GameObject:
   m_Component:
   - component: {fileID: 445239877}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: pos2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1949,6 +1955,7 @@ MonoBehaviour:
   oringal_position: {fileID: 710679734}
   restart_position: {fileID: 0}
   Turning_points:
+  - {fileID: 1187556663}
   - {fileID: 1500848840}
   - {fileID: 1373895505}
   - {fileID: 657857599}
@@ -1968,6 +1975,7 @@ MonoBehaviour:
   test: 1
   arduinor: {fileID: 1196204844}
   camera: {fileID: 339681901}
+  Newcamera: {fileID: 339681902}
 --- !u!95 &640389621
 Animator:
   serializedVersion: 7
@@ -2353,12 +2361,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e3d9c332df42346a94bfc6dea19225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  count_num: 0
+  count_num: 3
   objtransform: {fileID: 0}
   Save_Point: {fileID: 0}
   dires: 0000000000000000
-  next: 3
-  last: 2
+  next: 4
+  last: 3
 --- !u!1001 &674879735
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2676,7 +2684,7 @@ GameObject:
   m_Component:
   - component: {fileID: 738197227}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: pos3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2999,7 +3007,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1134726065}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: pos4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3090,7 +3098,7 @@ MonoBehaviour:
   objtransform: {fileID: 0}
   Save_Point: {fileID: 0}
   dires: 00000000
-  next: 0
+  next: 1
   last: 0
 --- !u!1 &1190825071
 GameObject:
@@ -3519,12 +3527,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e3d9c332df42346a94bfc6dea19225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  count_num: 1
+  count_num: 2
   objtransform: {fileID: 0}
   Save_Point: {fileID: 1373895507}
   dires: 0100000000000000
-  next: 1
-  last: 0
+  next: 2
+  last: 1
 --- !u!1 &1411286356
 GameObject:
   m_ObjectHideFlags: 0
@@ -3535,7 +3543,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1411286357}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: pos1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3810,12 +3818,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e3d9c332df42346a94bfc6dea19225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  count_num: 0
+  count_num: 1
   objtransform: {fileID: 0}
   Save_Point: {fileID: 0}
   dires: 0000000001000000
-  next: 1
-  last: 0
+  next: 2
+  last: 1
 --- !u!1001 &1586875104
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5067,6 +5075,7 @@ MonoBehaviour:
   test: 1
   arduinor: {fileID: 0}
   camera: {fileID: 0}
+  Newcamera: {fileID: 0}
 --- !u!54 &1957237751
 Rigidbody:
   m_ObjectHideFlags: 0

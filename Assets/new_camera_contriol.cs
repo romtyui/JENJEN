@@ -15,9 +15,9 @@ public class new_camera_contriol : MonoBehaviour
     private bool hasSwitchToFallTriggered = false;
     [SerializeField] private bool hasremains_firstTriggered = false;
     public remains_animation_code rac;
+    public player_control player_Control;
 
-
-    public enum Now_Scenes { Crocodile, Crocodile_appear, SwitchToFall,first,remains_first,none }
+    public enum Now_Scenes { Crocodile, Crocodile_appear, SwitchToFall,first,remains_first, remains, none }
     public Now_Scenes status;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -102,6 +102,53 @@ public class new_camera_contriol : MonoBehaviour
                 camera_move(camera_transforms[1], camera_transforms[4], camera_move_time[3]);
                 boat.canva.GetComponent<Animation>().Play("Transitions");
                 rac.turn = true;
+                break;
+            case Now_Scenes.remains:
+                int next = player_Control.next_Counter + 3;
+                int last = player_Control.last_Counter + 3;
+                int count = player_Control.count + 3;
+
+                if (player_Control.test)
+                {
+                    if (next < camera_transforms.Length && count != 3) 
+                    {
+                        if (count == 5)
+                        {
+                            camera_move(camera_transforms[count], camera_transforms[next + 1], camera_move_time[4]);
+                        }
+                        else if (count == 7) 
+                        {
+                            camera_move(camera_transforms[count], camera_transforms[7], camera_move_time[4]);
+                        }
+                        else if (count == 8)
+                        {
+                            camera_move(camera_transforms[count], camera_transforms[8], camera_move_time[4]);
+                        }
+                        else
+                        {
+                            camera_move(camera_transforms[count], camera_transforms[next], camera_move_time[4]);
+                        }
+                    }
+                }
+                else 
+                {
+                    if (last > 3)
+                    {
+                        if (count == 4)
+                        {
+                            camera_move(camera_transforms[next+2], camera_transforms[count+1], camera_move_time[4]);
+                        }
+                        else if (count == 6)
+                        {
+                            camera_move(camera_transforms[count], camera_transforms[5], camera_move_time[4]);
+                        }
+                        else
+                        {
+                            camera_move(camera_transforms[next], camera_transforms[count], camera_move_time[4]);
+                        }
+                    }
+                }
+                //rac.turn = true;
                 break;
             case Now_Scenes.none:
                 break;
