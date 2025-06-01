@@ -130,13 +130,13 @@ public class new_camera_contriol : MonoBehaviour
                         }
                     }
                 }
-                else 
+                else if(!player_Control.test)
                 {
                     if (last > 3)
                     {
                         if (count == 4)
                         {
-                            camera_move(camera_transforms[next+2], camera_transforms[count+1], camera_move_time[4]);
+                            camera_move(camera_transforms[next+1], camera_transforms[count+1], camera_move_time[4]);
                         }
                         else if (count == 6)
                         {
