@@ -14,6 +14,8 @@ public class Object_create_code : MonoBehaviour
     public GameObject create_pOS;
     [SerializeField] private Material[] obj_M;
 
+    public obstacles_code OC;
+    public Material[] OBJ_M;
     [SerializeField] public float confirmationTime = 0.5f;
     public float detectionTimer = 0f;
     private string lastTCPData = "";
@@ -34,6 +36,7 @@ public class Object_create_code : MonoBehaviour
     {
         IRS = GetComponent<Image_Recognition_script>();
         player = GameObject.FindWithTag("Player");
+
     }
 
     // Update is called once per frame
@@ -144,6 +147,7 @@ public class Object_create_code : MonoBehaviour
                         obj.GetComponent<obstacles_code>().cubes[j].GetComponent<MeshRenderer>().materials[0] = obj_M[2];
                     }
 
+               
                 }
                 /*�n�ͦ�����{��*/
                 Obj_Data_name = "Null";

@@ -5,10 +5,12 @@ public class obstacles_code : MonoBehaviour
     public Object_create_code OCC;
     public float height;
     public MeshRenderer[] cubes;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         OCC = FindAnyObjectByType< Object_create_code>();
+
     }
 
     // Update is called once per frame
@@ -23,6 +25,7 @@ public class obstacles_code : MonoBehaviour
         {
  
             bool activeState = false;
+           
             var rockScript = other.transform.parent.GetComponent<rock_obstacle_code>();
             rockScript.GetComponent<rock_obstacle_code>().turn = true;
             this.gameObject.SetActive(false);

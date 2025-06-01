@@ -10210,6 +10210,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 5cbc32649f3d27d43b89f6c8684368e3, type: 2}
   - {fileID: 2100000, guid: 94bbe4c39afe4134ab6ea050346b0c3d, type: 2}
   - {fileID: 2100000, guid: 5cec330ed42f258489096f8fc535d8b6, type: 2}
+  OC: {fileID: 0}
   confirmationTime: 0.5
   detectionTimer: 0
   player: {fileID: 0}
