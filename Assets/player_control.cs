@@ -34,6 +34,8 @@ public class player_control : MonoBehaviour
     {
         this.gameObject.transform.position = oringal_position.position;
         arduinor = FindAnyObjectByType<arduino_contect>();
+        OCC = FindAnyObjectByType<Object_create_code>();
+
     }
 
     // Update is called once per frame
