@@ -136,7 +136,7 @@ Transform:
   m_GameObject: {fileID: 4600801097359071026}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -6.51, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -157,7 +157,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ac581fad87877f49be5e7fb97e00b7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OCC: {fileID: 0}
   height: 3
+  cubes:
+  - {fileID: 8147124583732943283}
+  - {fileID: 1342265288679142793}
+  - {fileID: 7960564088898989912}
 --- !u!65 &6503630301601697853
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -9820,6 +9820,7 @@ MonoBehaviour:
   test: 1
   arduinor: {fileID: 1196204844}
   camera: {fileID: 0}
+  Newcamera: {fileID: 0}
 --- !u!95 &1094545099
 Animator:
   serializedVersion: 7
@@ -10205,6 +10206,10 @@ MonoBehaviour:
   - {fileID: 4600801097359071026, guid: 370d418cae215c543823ebe497f45aaa, type: 3}
   - {fileID: 6394496847380935147, guid: 8b632ba61fd89c9458d30e58934c36f8, type: 3}
   create_pOS: {fileID: 39011638}
+  obj_M:
+  - {fileID: 2100000, guid: 5cbc32649f3d27d43b89f6c8684368e3, type: 2}
+  - {fileID: 2100000, guid: 94bbe4c39afe4134ab6ea050346b0c3d, type: 2}
+  - {fileID: 2100000, guid: 5cec330ed42f258489096f8fc535d8b6, type: 2}
   confirmationTime: 0.5
   detectionTimer: 0
   player: {fileID: 0}
@@ -12826,6 +12831,7 @@ MonoBehaviour:
   test: 1
   arduinor: {fileID: 1196204844}
   camera: {fileID: 339681901}
+  Newcamera: {fileID: 0}
 --- !u!54 &1957237751
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -9,9 +9,11 @@ public class Object_create_code : MonoBehaviour
     [Header("����ͦ�")]
     public bool trunBT;
 
-    [SerializeField] private string Obj_Data_name, Color_Data_name, OGData_name;
+    [SerializeField] public string Obj_Data_name, Color_Data_name, OGData_name;
     public GameObject[] create_Objs;
     public GameObject create_pOS;
+    [SerializeField] private Material[] obj_M;
+
     [SerializeField] public float confirmationTime = 0.5f;
     public float detectionTimer = 0f;
     private string lastTCPData = "";
@@ -126,7 +128,23 @@ public class Object_create_code : MonoBehaviour
         switch (status) 
         {
             case OrderStatus.Obstacle:
-                Instantiate(create_Objs[0], Instantiat_Spawn);
+                GameObject obj = Instantiate(create_Objs[0], Instantiat_Spawn);
+                for (int j = 0; j < obj.GetComponent<obstacles_code>().cubes.Length; j++) 
+                {
+                    if (Color_Data_name == "blue") 
+                    {
+                        obj.GetComponent<obstacles_code>().cubes[j].GetComponent<MeshRenderer>().materials[0] = obj_M[0];
+                    }
+                    else if (Color_Data_name == "red")
+                    {
+                        obj.GetComponent<obstacles_code>().cubes[j].GetComponent<MeshRenderer>().materials[0] = obj_M[1];
+                    }
+                    else if (Color_Data_name == "green")
+                    {
+                        obj.GetComponent<obstacles_code>().cubes[j].GetComponent<MeshRenderer>().materials[0] = obj_M[2];
+                    }
+
+                }
                 /*�n�ͦ�����{��*/
                 Obj_Data_name = "Null";
                 Color_Data_name = "Null";

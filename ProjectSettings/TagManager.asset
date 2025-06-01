@@ -12,6 +12,7 @@ TagManager:
   - event_end
   - enermy
   - full
+  - brige
   layers:
   - Default
   - TransparentFX

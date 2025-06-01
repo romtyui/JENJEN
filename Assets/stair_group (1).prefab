@@ -404,7 +404,7 @@ GameObject:
   - component: {fileID: 1498726537758775479}
   m_Layer: 0
   m_Name: stair_group (1)
-  m_TagString: Untagged
+  m_TagString: brige
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
