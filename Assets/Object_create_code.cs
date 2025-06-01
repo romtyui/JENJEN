@@ -9,9 +9,11 @@ public class Object_create_code : MonoBehaviour
     [Header("����ͦ�")]
     public bool trunBT;
 
-    [SerializeField] private string Obj_Data_name, Color_Data_name, OGData_name;
+    [SerializeField] public string Obj_Data_name, Color_Data_name, OGData_name;
     public GameObject[] create_Objs;
     public GameObject create_pOS;
+    public obstacles_code OC;
+    public Material[] OBJ_M;
     [SerializeField] public float confirmationTime = 0.5f;
     public float detectionTimer = 0f;
     private string lastTCPData = "";
@@ -32,6 +34,7 @@ public class Object_create_code : MonoBehaviour
     {
         IRS = GetComponent<Image_Recognition_script>();
         player = GameObject.FindWithTag("Player");
+
     }
 
     // Update is called once per frame
@@ -127,6 +130,21 @@ public class Object_create_code : MonoBehaviour
         {
             case OrderStatus.Obstacle:
                 Instantiate(create_Objs[0], Instantiat_Spawn);
+                for (int j = 0; j < OC.cubes.Length; j++)
+                {
+                    if (Color_Data_name == "blue")
+                    {
+                        OC.cubes[j].GetComponent<MeshRenderer>().materials[0] = OBJ_M[0];
+                    }
+                    else if (Color_Data_name == "red")
+                    {
+                        OC.cubes[j].GetComponent<MeshRenderer>().materials[0] = OBJ_M[1];
+                    }
+                    else if (Color_Data_name == "green")
+                    {
+                        OC.cubes[j].GetComponent<MeshRenderer>().materials[0] = OBJ_M[2];
+                    }
+                }
                 /*�n�ͦ�����{��*/
                 Obj_Data_name = "Null";
                 Color_Data_name = "Null";

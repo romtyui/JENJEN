@@ -158,6 +158,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   height: 3
+  cubes:
+  - {fileID: 8147124583732943283}
+  - {fileID: 1342265288679142793}
+  - {fileID: 7960564088898989912}
 --- !u!65 &6503630301601697853
 BoxCollider:
   m_ObjectHideFlags: 0

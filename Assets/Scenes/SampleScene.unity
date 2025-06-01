@@ -10196,6 +10196,11 @@ MonoBehaviour:
   - {fileID: 4600801097359071026, guid: 370d418cae215c543823ebe497f45aaa, type: 3}
   - {fileID: 6394496847380935147, guid: 8b632ba61fd89c9458d30e58934c36f8, type: 3}
   create_pOS: {fileID: 39011638}
+  OC: {fileID: 0}
+  OBJ_M:
+  - {fileID: 2100000, guid: 5cbc32649f3d27d43b89f6c8684368e3, type: 2}
+  - {fileID: 2100000, guid: 94bbe4c39afe4134ab6ea050346b0c3d, type: 2}
+  - {fileID: 2100000, guid: fe927cb8b65904f458d15a898770860d, type: 2}
   confirmationTime: 0.5
   detectionTimer: 0
   player: {fileID: 0}
