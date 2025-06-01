@@ -17,6 +17,8 @@ public class new_camera_contriol : MonoBehaviour
     public remains_animation_code rac;
     public player_control player_Control;
     public No2_code n2;
+    public GameObject  fuckcrocodiletwice;
+
 
     public enum Now_Scenes { Crocodile, Crocodile_appear, SwitchToFall,first,remains_first,snake,snake2, remains, none }
     public Now_Scenes status;
@@ -34,6 +36,7 @@ public class new_camera_contriol : MonoBehaviour
         if ((boat.timer / boat.total_time) > 0.2f && !hasCrocodileTriggered)
         {
             status = Now_Scenes.Crocodile_appear;
+            fuckcrocodiletwice.SetActive(true);
             hasCrocodileTriggered =true;
         }
         if ((boat.timer / boat.total_time) > 0.5f && !hasSwitchToFallTriggered)

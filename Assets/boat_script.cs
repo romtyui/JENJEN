@@ -43,7 +43,7 @@ public class boat_script : MonoBehaviour
     {
         if (other.gameObject.tag == "enermy") 
         {
-            if (other.gameObject.name == "Crocodile")
+            if (other.gameObject.name == "fuckcrocodiletwice")
             {
                 timer = 0.2f*total_time;
             }
