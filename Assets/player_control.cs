@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static new_camera_contriol;
 
 public class player_control : MonoBehaviour
@@ -29,6 +30,7 @@ public class player_control : MonoBehaviour
     public arduino_contect arduinor;
     public camera_control camera;
     public new_camera_contriol Newcamera;
+    public Transform Endtransform;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -62,6 +64,11 @@ public class player_control : MonoBehaviour
             
             
         }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            SceneManager.LoadScene("twotwo");
+
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -77,6 +84,8 @@ public class player_control : MonoBehaviour
                 if (other.gameObject.name == "Turning_C_end")
                 {
                     camera.event_playing = true;
+
+                   
                 }
                 else
                 {
