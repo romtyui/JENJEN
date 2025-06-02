@@ -1,3 +1,4 @@
+using Unity.Android.Gradle.Manifest;
 using UnityEngine;
 
 public class obstacles_code : MonoBehaviour
@@ -32,19 +33,34 @@ public class obstacles_code : MonoBehaviour
         }
         if (other.gameObject.tag == "brige")
         {
-
+            if (OCC.Color_Data_name == "red")
+            {
+                other.gameObject.SetActive(false);
+            }
+                //bool activeState = false;
+                //var rockScript = other.transform.parent.GetComponent<rock_obstacle_code>();
+                //rockScript.GetComponent<rock_obstacle_code>().turn = true;
+                //this.gameObject.SetActive(false);
+        }
+        if (other.gameObject.tag == "water")
+        {
+            if (OCC.Color_Data_name == "red" || OCC.Color_Data_name == "green")
+            {
+                other.GetComponent<No2_code>().turn = true;
+            }
             //bool activeState = false;
             //var rockScript = other.transform.parent.GetComponent<rock_obstacle_code>();
             //rockScript.GetComponent<rock_obstacle_code>().turn = true;
             //this.gameObject.SetActive(false);
         }
-        if (other.gameObject.tag == "water")
+        if (other.gameObject.tag == "full")
         {
-            other.GetComponent<No2_code>().turn = true;
-            //bool activeState = false;
-            //var rockScript = other.transform.parent.GetComponent<rock_obstacle_code>();
-            //rockScript.GetComponent<rock_obstacle_code>().turn = true;
-            //this.gameObject.SetActive(false);
+            if (OCC.Color_Data_name == "red" || OCC.Color_Data_name == "green")
+            {
+                other.GetComponent<full_code>().turn = true;
+                other.GetComponent<full_code>().data = OCC.Color_Data_name;
+            }
+
         }
     }
 }
