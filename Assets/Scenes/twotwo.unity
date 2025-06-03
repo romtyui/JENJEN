@@ -2500,7 +2500,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   water: {fileID: 1995389172}
-  snake: {fileID: 0}
+  snake: {fileID: 1573318422}
   clip: {fileID: 7400000, guid: 7d5305126be020444abc4950220d81d4, type: 2}
   turn: 0
   timer: 1.71
@@ -9685,10 +9685,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: "\u86C7\u982D"
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e5894b147cfcd4b42a488b1a7a9a33c5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e5894b147cfcd4b42a488b1a7a9a33c5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1573318422}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e5894b147cfcd4b42a488b1a7a9a33c5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1573318421}
   m_SourcePrefab: {fileID: 100100000, guid: e5894b147cfcd4b42a488b1a7a9a33c5, type: 3}
 --- !u!1 &1032210168
 GameObject:
@@ -13577,12 +13587,34 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1558715601}
   m_Mesh: {fileID: -9642238056198678, guid: 4512559abe5e68c46988cbccec3dae0b, type: 3}
+--- !u!1 &1573318420 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e5894b147cfcd4b42a488b1a7a9a33c5, type: 3}
+  m_PrefabInstance: {fileID: 1026001053}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1573318421
+MonoBehaviour:
 --- !u!1 &1574505100
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573318420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d11f987ac7dc434783c6b9149441d79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  water: {fileID: 0}
+  snake: {fileID: 0}
+  clip: {fileID: 0}
+  turn: 0
+  timer: 0
+  t: 0
+  NCC: {fileID: 339681902}
+--- !u!111 &1573318422
+Animation:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1574505101}
@@ -13601,6 +13633,18 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573318420}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 7d5305126be020444abc4950220d81d4, type: 2}
+  - {fileID: 7400000, guid: 2c4e91fa394db914eaa2e35c2924484f, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_UpdateMode: 0
+  m_CullingType: 0
   m_GameObject: {fileID: 1574505100}
   serializedVersion: 2
   m_LocalRotation: {x: -0.661726, y: -0.020414893, z: -0.015750717, w: 0.7493022}
@@ -13967,7 +14011,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b2bd94c4c526c9a469379641b6bdcbd5, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b2bd94c4c526c9a469379641b6bdcbd5, type: 3}
       propertyPath: m_TagString

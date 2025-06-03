@@ -22,7 +22,7 @@ public partial class Image_Recognition_script : MonoBehaviour
 
     void Start()
     {
-        DontDestroyOnLoad(gameObject); // 切換場景時保留這個物件
+        DontDestroyOnLoad(this.gameObject); // 切換場景時保留這個物件
         ConnectToServer();
     }
 

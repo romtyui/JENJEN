@@ -36,6 +36,7 @@ public class Object_create_code : MonoBehaviour
     {
         IRS = GetComponent<Image_Recognition_script>();
         player = GameObject.FindWithTag("Player");
+        DontDestroyOnLoad(this.gameObject); // 切換場景時保留這個物件
 
 
     }
