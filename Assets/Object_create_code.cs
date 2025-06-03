@@ -92,8 +92,8 @@ public class Object_create_code : MonoBehaviour
 
                 Status_Switch(Obj_Data_name);
 
-                int i = gameObject.GetComponent<player_control>().count;
-                GameObject TF = gameObject.GetComponent<player_control>().Turning_points[i];
+                int i = player.gameObject.GetComponent<player_control>().count;
+                GameObject TF = player.gameObject.GetComponent<player_control>().Turning_points[i];
                 Instantiat_Spawn = TF.GetComponent<countpoint_code>().objtransform.transform;
 
                 Status_List(Instantiat_Spawn);
