@@ -22,7 +22,7 @@ public class obstacles_code : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log(other.name);
-        if (other.gameObject.tag == "rock" && OCC.Color_Data_name == "blue")
+        if (other.gameObject.tag == "rock" )
         {
  
             bool activeState = false;

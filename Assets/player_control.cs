@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static camera_control;
 using static new_camera_contriol;
 
 public class player_control : MonoBehaviour
@@ -56,13 +57,20 @@ public class player_control : MonoBehaviour
         }
         if (turning_BT)
         {
+            Transform targetPoint = Turning_points[
+                (test == true) ? next_Counter : last_Counter
+            ].transform;
             transform.position = Vector3.MoveTowards(
                 transform.position,       // �ثe��m
                 Turning_points[((test == true) ? next_Counter : last_Counter)].transform.position,
                 speed * Time.deltaTime     // �C�����ʦh��
                 );
-            
-            
+            if (Vector3.Distance(transform.position, targetPoint.position) < 0.01f)
+            {
+                turning_BT = false;
+                Debug.Log("抵達轉彎點！");
+            }
+
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
@@ -84,14 +92,27 @@ public class player_control : MonoBehaviour
                 if (other.gameObject.name == "Turning_C_end")
                 {
                     camera.event_playing = true;
+                    camera.selectedAngle = AngleOption.Deg90;
 
-                   
                 }
                 else
                 {
                     for (int i = 0; i < turning_number.Length; i++)
                     {
                         turning_number[i] = other.gameObject.GetComponent<countpoint_code>().dires[i];
+                        camera.turn = true;
+                        if (other.gameObject.name == "Turning_A")
+                        {
+                            camera.selectedAngle = AngleOption.Deg0;
+                        }
+                        else if (other.gameObject.name == "Turning_B")
+                        {
+                            camera.selectedAngle = AngleOption.Deg180;
+                        }
+                        else if (other.gameObject.name == "Turning_D")
+                        {
+                            camera.selectedAngle = AngleOption.Deg90;
+                        }
                     }
                 }
             }
@@ -124,7 +145,7 @@ public class player_control : MonoBehaviour
         if (other.gameObject.tag == "event_checkpoint")
         {
             OCC.trunBT = true;
-            if (other.GetComponent<countpoint_code>().Save_Point != null) 
+            if (other.GetComponent<countpoint_code>() != null) 
             {
                 restart_position = other.GetComponent<countpoint_code>().Save_Point;
             }
