@@ -84,38 +84,42 @@ public class player_control : MonoBehaviour
         {
             if (rank1)
             {
-                this.gameObject.transform.position = other.gameObject.transform.position;
-                count = other.gameObject.GetComponent<countpoint_code>().count_num;
-                next_Counter = ((other.gameObject.GetComponent<countpoint_code>().count_num + 1 < Turning_points.Length - 1) ? other.gameObject.GetComponent<countpoint_code>().count_num + 1 : 0);
-                last_Counter = ((other.gameObject.GetComponent<countpoint_code>().count_num - 1 > -1) ? other.gameObject.GetComponent<countpoint_code>().count_num - 1 : Turning_points.Length - 1);
-                turning_BT = false;
-                if (other.gameObject.name == "Turning_C_end")
-                {
-                    camera.event_playing = true;
-                    camera.selectedAngle = AngleOption.Deg90;
 
-                }
-                else
+                if (other.gameObject.name != "Turning_C_end")
                 {
-                    for (int i = 0; i < turning_number.Length; i++)
+                    //camera.event_playing = true;
+                    //camera.selectedAngle = AngleOption.Deg90;
+                    this.gameObject.transform.position = other.gameObject.transform.position;
+                    count = other.gameObject.GetComponent<countpoint_code>().count_num;
+                    next_Counter = ((other.gameObject.GetComponent<countpoint_code>().count_num + 1 < Turning_points.Length - 1) ? other.gameObject.GetComponent<countpoint_code>().count_num + 1 : 0);
+                    last_Counter = ((other.gameObject.GetComponent<countpoint_code>().count_num - 1 > -1) ? other.gameObject.GetComponent<countpoint_code>().count_num - 1 : Turning_points.Length - 1);
+                    turning_BT = false;
+                    if (other.gameObject.name == "Turning_A")
                     {
-                        turning_number[i] = other.gameObject.GetComponent<countpoint_code>().dires[i];
-                        camera.turn = true;
-                        if (other.gameObject.name == "Turning_A")
-                        {
-                            camera.selectedAngle = AngleOption.Deg0;
-                        }
-                        else if (other.gameObject.name == "Turning_B")
-                        {
-                            camera.selectedAngle = AngleOption.Deg180;
-                        }
-                        else if (other.gameObject.name == "Turning_D")
-                        {
-                            camera.selectedAngle = AngleOption.Deg90;
-                        }
+                        camera.status = cam1_Now_Scenes.camera1;
+                        //camera.selectedAngle = AngleOption.Deg0;
+                    }
+                    else if (other.gameObject.name == "Turning_B")
+                    {
+                        camera.status = cam1_Now_Scenes.camera2;
+                        //camera.selectedAngle = AngleOption.Deg180;
+                    }
+                    //camera.selectedAngle = AngleOption.Deg180;
+
+                    else if (other.gameObject.name == "Turning_D")
+                    {
+                        camera.status = cam1_Now_Scenes.camera3;
+                        //camera.selectedAngle = AngleOption.Deg90;
                     }
                 }
+                else 
+                {
+                    camera.status = cam1_Now_Scenes.camera4;
+                    this.GetComponent<end_script>().turn = true;
+                    this.GetComponent<player_control>().enabled = false;
+                }
             }
+                
             else if (rank2)
             {
                 Debug.Log(other.gameObject.name);
