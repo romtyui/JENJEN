@@ -132,6 +132,8 @@ public class player_control : MonoBehaviour
                 else 
                 {
                     Debug.Log(other.gameObject.name);
+                    restart_position = other.GetComponent<countpoint_code>().Save_Point;
+
                     //this.gameObject.transform.position = other.gameObject.transform.position;
                     count = other.gameObject.GetComponent<countpoint_code>().count_num;
                     next_Counter = other.gameObject.GetComponent<countpoint_code>().next;
@@ -166,6 +168,10 @@ public class player_control : MonoBehaviour
             }
         }
         if (other.gameObject.tag == "rock")
+        {
+            this.transform.position = restart_position.position;
+        }
+        if (other.gameObject.tag == "spring")
         {
             this.transform.position = restart_position.position;
         }

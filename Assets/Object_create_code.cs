@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Playables;
@@ -12,10 +13,8 @@ public class Object_create_code : MonoBehaviour
     [SerializeField] public string Obj_Data_name, Color_Data_name, OGData_name;
     public GameObject[] create_Objs;
     public GameObject create_pOS;
-    [SerializeField] private Material[] obj_M;
 
     public obstacles_code OC;
-    public Material[] OBJ_M;
     [SerializeField] public float confirmationTime = 0.5f;
     public float detectionTimer = 0f;
     private string lastTCPData = "";
@@ -28,7 +27,7 @@ public class Object_create_code : MonoBehaviour
     public OrderStatus status;
 
     public player_control corner;
-
+    public Material Dissolve;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
 
@@ -136,23 +135,29 @@ public class Object_create_code : MonoBehaviour
         {
             case OrderStatus.Obstacle:
                 GameObject obj = Instantiate(create_Objs[0], Instantiat_Spawn);
-                for (int j = 0; j < obj.GetComponent<obstacles_code>().cubes.Length; j++) 
+                obj.GetComponent<MeshRenderer>().materials[0] = Dissolve;
+                //for (int j = 0; j < obj.GetComponent<obstacles_code>().cubes.Length; j++) 
+                //{
+                float dissolve = Mathf.PingPong(Time.time * 2f, 2f) - 1f;
+                if (Color_Data_name == "blue")
                 {
-                    if (Color_Data_name == "blue") 
-                    {
-                        obj.GetComponent<obstacles_code>().cubes[j].GetComponent<MeshRenderer>().materials[0] = obj_M[0];
-                    }
-                    else if (Color_Data_name == "red")
-                    {
-                        obj.GetComponent<obstacles_code>().cubes[j].GetComponent<MeshRenderer>().materials[0] = obj_M[1];
-                    }
-                    else if (Color_Data_name == "green")
-                    {
-                        obj.GetComponent<obstacles_code>().cubes[j].GetComponent<MeshRenderer>().materials[0] = obj_M[2];
-                    }
-
-               
+                    //obj.GetComponent<MeshRenderer>().materials[0].SetFloat("_Dissolve", dissolve);
+                    obj.GetComponent<MeshRenderer>().materials[0].SetFloat("_Color", 1.0f);
                 }
+                else if (Color_Data_name == "red")
+                {
+                    //obj.GetComponent<MeshRenderer>().materials[0].SetFloat("_Dissolve", dissolve);
+                    obj.GetComponent<MeshRenderer>().materials[0].SetFloat("_Color", 0f);
+                }
+                else if (Color_Data_name == "green")
+                {
+                    //obj.GetComponent<MeshRenderer>().materials[0].SetFloat("_Dissolve", dissolve);
+                    obj.GetComponent<MeshRenderer>().materials[0].SetFloat("_Color", 2.0f);
+                }
+                // 啟動 Dissolve 動畫（一次性從 0 到 -1）
+                StartCoroutine(DissolveEffect(obj.GetComponent<MeshRenderer>().materials[0], 2f));  // 2秒內完成 dissolve
+
+                //}
                 /*�n�ͦ�����{��*/
                 Obj_Data_name = "Null";
                 Color_Data_name = "Null";
@@ -171,5 +176,19 @@ public class Object_create_code : MonoBehaviour
 
                 break;
         }
+    }
+    IEnumerator DissolveEffect(Material mat, float duration)
+    {
+        float elapsed = 0f;
+        while (elapsed < duration)
+        {
+            float t = elapsed / duration;                          // 0 → 1
+            float dissolveValue = Mathf.Lerp(0f, -1f, t);          // 線性淡出
+            mat.SetFloat("_Dissolve", dissolveValue);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        mat.SetFloat("_Dissolve", -1f);  // 確保結束時設為 -1
     }
 }

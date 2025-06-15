@@ -17,7 +17,7 @@ public class full_code : MonoBehaviour
     {
         if (turn) 
         {
-            full.transform.localScale +=new Vector3(0,0-55f);
+            full.transform.localScale +=new Vector3(0,0, -55f);
             turn = false;
         }
     }
