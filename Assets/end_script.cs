@@ -9,6 +9,7 @@ public class end_script : MonoBehaviour
     public bool turn, turn2;
     public float speed,t, camera_move_time;
     public camera_control camera;
+    public GameObject obj;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -27,8 +28,8 @@ public class end_script : MonoBehaviour
                 );
             if (Vector3.Distance(transform.position, end_pos.position) < 0.01f)
             {
-                turn = false;
                 turn2 = true;
+                turn = false;
 
                 Debug.Log("抵達轉彎點！");
             }
@@ -41,8 +42,12 @@ public class end_script : MonoBehaviour
 
             boat_pos.transform.position = Vector3.Lerp(boat_pos.position, end2_pos.position, t / camera_move_time);
             boat_pos.transform.rotation = Quaternion.Lerp(boat_pos.rotation, end2_pos.rotation, t / camera_move_time);
+            if (t / camera_move_time > 0.2f)
+            {
+                    obj.SetActive(true);
 
-            if (t / camera_move_time > 1)
+            }
+            if (t / camera_move_time > 0.5f)
             {
                 SceneManager.LoadScene("twotwo");
                 t = 0f;
