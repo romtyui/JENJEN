@@ -125,7 +125,9 @@ public class player_control : MonoBehaviour
                 if (other.gameObject.name == "remains_turning2" && Newcamera.endtrun == true)
                 {
                     //camera.status = cam1_Now_Scenes.camera1;
-                    //camera.selectedAngle = AngleOption.Deg0;
+                    this.GetComponent<rank2_end>().turn = true;
+                    Newcamera.enabled = false;
+                    this.GetComponent<player_control>().enabled = false;
                 }
                 else 
                 {

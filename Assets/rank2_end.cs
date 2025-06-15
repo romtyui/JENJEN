@@ -4,11 +4,12 @@ using UnityEngine.SceneManagement;
 
 public class rank2_end : MonoBehaviour
 {
-    public Transform end_pos, end2_pos,end3_pos, camera_pos,camera_pos2;
+    public Transform start_pos,end_pos, end2_pos,end3_pos, camera_pos,camera_pos2;
     public bool turn, turn2;
     public float speed, t,t2, camera_move_time;
     public Camera camera;
     public GameObject obj,turningIMG;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,6 +21,9 @@ public class rank2_end : MonoBehaviour
     {
         if (turn)
         {
+            camera.transform.position = start_pos.position;
+            camera.transform.rotation = start_pos.rotation;
+
             transform.position = Vector3.MoveTowards(
                 transform.position,       // �ثe��m
                 end_pos.position,
@@ -28,10 +32,12 @@ public class rank2_end : MonoBehaviour
             turningIMG.SetActive( true );
             if (Vector3.Distance(transform.position, end_pos.position) < 0.01f)
             {
+                camera.transform.position = camera_pos.position;
+                camera.transform.rotation = camera_pos.rotation;
+
                 turn2 = true;
                 turn = false;
                 transform.position = end2_pos.position;
-                camera.transform.position = camera_pos2.position;
 
                 Debug.Log("抵達轉彎點！");
             }
@@ -42,23 +48,18 @@ public class rank2_end : MonoBehaviour
             //transform.position = boat_pos.position;
             t += Time.deltaTime;
 
-            transform.position = Vector3.Lerp(transform.position, end3_pos.position, t / camera_move_time);
-            transform.rotation = Quaternion.Lerp(transform.rotation, end3_pos.rotation, t / camera_move_time);
-  
-            if (t / camera_move_time > 1f)
-            {
-                //SceneManager.LoadScene("twotwo");
-                t = 0f;
+            transform.position = Vector3.Lerp(end2_pos.position, end3_pos.position, t / camera_move_time);
+            transform.rotation = Quaternion.Lerp(end2_pos.rotation, end3_pos.rotation, t / camera_move_time);
 
-            }
+            camera_move();
         }
     }
     void camera_move() 
     {
         t2 += Time.deltaTime;
 
-        camera.transform.position = Vector3.Lerp(camera.transform.position, camera_pos.position, t / camera_move_time);
-        camera.transform.rotation = Quaternion.Lerp(camera.transform.rotation, camera_pos.rotation, t / camera_move_time);
+        camera.transform.position = Vector3.Lerp(camera_pos.transform.position, camera_pos2.position, t / camera_move_time);
+        camera.transform.rotation = Quaternion.Lerp(camera_pos.transform.rotation, camera_pos2.rotation, t / camera_move_time);
 
         if (t / camera_move_time > 1f)
         {

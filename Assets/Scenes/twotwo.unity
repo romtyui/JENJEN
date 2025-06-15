@@ -2831,7 +2831,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   water: {fileID: 1995389172}
-  snake: {fileID: 0}
+  snake: {fileID: 1026001058}
   clip: {fileID: 7400000, guid: 7d5305126be020444abc4950220d81d4, type: 2}
   turn: 0
   timer: 1.71
@@ -3387,13 +3387,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 339681896}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.14254634, y: 0.8142674, z: -0.22505124, w: -0.515753}
-  m_LocalPosition: {x: 145.85, y: 52.19, z: 35.68}
-  m_LocalScale: {x: 7.9694204, y: 7.9694204, z: 7.9694204}
+  m_LocalRotation: {x: -0.13847768, y: -0.8340143, z: 0.2427771, w: -0.4757136}
+  m_LocalPosition: {x: -38.559998, y: 24.229998, z: -7.79}
+  m_LocalScale: {x: 5.926542, y: 5.926542, z: 5.926542}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 30.9, y: 964.7, z: 0}
+  m_LocalEulerAnglesHint: {x: 37.5, y: 962, z: -0.203}
 --- !u!114 &339681901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3443,7 +3443,7 @@ MonoBehaviour:
   - 1.31
   - 1.54
   - 3.18
-  - 0
+  - 0.39
   - 0.53
   - 2.4
   hasremains_firstTriggered: 0
@@ -4072,8 +4072,9 @@ Animation:
   m_GameObject: {fileID: 397537142}
   m_Enabled: 1
   serializedVersion: 4
-  m_Animation: {fileID: 7400000, guid: 2c4e91fa394db914eaa2e35c2924484f, type: 2}
-  m_Animations: []
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 7d5305126be020444abc4950220d81d4, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -5105,7 +5106,7 @@ Transform:
   m_GameObject: {fileID: 450694506}
   serializedVersion: 2
   m_LocalRotation: {x: 0.00011347545, y: 0.00000020101267, z: -0.0017714172, w: 0.99999845}
-  m_LocalPosition: {x: 152.1, y: 36.2, z: 38.8}
+  m_LocalPosition: {x: 130.46, y: 38.09, z: 30.34}
   m_LocalScale: {x: 2.4899998, y: 2.49, z: 2.4900002}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6829,7 +6830,7 @@ MonoBehaviour:
   turning_number:
   - 0
   - 0
-  speed: 1
+  speed: 5
   test: 1
   arduinor: {fileID: 0}
   camera: {fileID: 339681901}
@@ -6892,6 +6893,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42385af3f71b42547b3b297423750573, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  start_pos: {fileID: 445239877}
   end_pos: {fileID: 1801640950}
   end2_pos: {fileID: 1046288882}
   end3_pos: {fileID: 450694507}
@@ -6899,10 +6901,10 @@ MonoBehaviour:
   camera_pos2: {fileID: 1521991372}
   turn: 0
   turn2: 0
-  speed: 10
+  speed: 5
   t: 0
   t2: 0
-  camera_move_time: 2
+  camera_move_time: 7
   camera: {fileID: 339681899}
   obj: {fileID: 0}
   turningIMG: {fileID: 1871370511}
@@ -9214,6 +9216,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10407407a7ce40643bb42ad218b6567a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boat: {fileID: 0}
+  new_Camera: {fileID: 0}
 --- !u!114 &866840925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11063,6 +11067,12 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e5894b147cfcd4b42a488b1a7a9a33c5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1026001058}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e5894b147cfcd4b42a488b1a7a9a33c5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1026001057}
     - targetCorrespondingSourceObject: {fileID: 3129044937978365056, guid: e5894b147cfcd4b42a488b1a7a9a33c5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1026001055}
@@ -11084,6 +11094,47 @@ Animation:
   m_Animation: {fileID: 0}
   m_Animations:
   - {fileID: 7400000, guid: 2c4e91fa394db914eaa2e35c2924484f, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_UpdateMode: 0
+  m_CullingType: 0
+--- !u!1 &1026001056 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e5894b147cfcd4b42a488b1a7a9a33c5, type: 3}
+  m_PrefabInstance: {fileID: 1026001053}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1026001057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1026001056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d11f987ac7dc434783c6b9149441d79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  water: {fileID: 0}
+  snake: {fileID: 0}
+  clip: {fileID: 0}
+  turn: 0
+  timer: 0
+  t: 0
+  NCC: {fileID: 339681902}
+--- !u!111 &1026001058
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1026001056}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 7d5305126be020444abc4950220d81d4, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -11599,7 +11650,7 @@ Transform:
   m_GameObject: {fileID: 1046288881}
   serializedVersion: 2
   m_LocalRotation: {x: 0.00011347545, y: 0.00000020101267, z: -0.0017714172, w: 0.99999845}
-  m_LocalPosition: {x: 64.03, y: 36.2, z: 5.8}
+  m_LocalPosition: {x: 64.03, y: 32.75, z: 5.8}
   m_LocalScale: {x: 2.4899998, y: 2.49, z: 2.4900002}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15275,7 +15326,7 @@ Transform:
   m_GameObject: {fileID: 1521991371}
   serializedVersion: 2
   m_LocalRotation: {x: -0.14254634, y: 0.8142674, z: -0.22505124, w: -0.515753}
-  m_LocalPosition: {x: 145.85, y: 52.19, z: 35.68}
+  m_LocalPosition: {x: 151, y: 52.19, z: 37.43}
   m_LocalScale: {x: 7.9694214, y: 7.9694204, z: 7.969421}
   m_ConstrainProportionsScale: 0
   m_Children: []
