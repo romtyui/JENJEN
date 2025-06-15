@@ -275,6 +275,7 @@ MonoBehaviour:
   count_num: 3
   objtransform: {fileID: 1570081259}
   Save_Point: {fileID: 0}
+  next_transform: {fileID: 0}
   dires: 0100000002000000
   next: 0
   last: 0
@@ -488,6 +489,7 @@ MonoBehaviour:
   count_num: 0
   objtransform: {fileID: 0}
   Save_Point: {fileID: 0}
+  next_transform: {fileID: 0}
   dires: 0200000003000000
   next: 0
   last: 0
@@ -8032,6 +8034,7 @@ MonoBehaviour:
   count_num: 1
   objtransform: {fileID: 1653954424}
   Save_Point: {fileID: 0}
+  next_transform: {fileID: 0}
   dires: 0300000004000000
   next: 0
   last: 0
@@ -11951,6 +11954,12 @@ MonoBehaviour:
   rank1: 1
   rank2: 0
   rank3: 0
+  baseY: 0
+  risePerBlock: 0.2
+  smoothSpeed: 2
+  maxY: 3
+  moveTarget: {fileID: 0}
+  moveSpeed: 2
   turning_number:
   - 0
   - 0
@@ -12433,7 +12442,8 @@ MonoBehaviour:
   Instantiat_Spawn: {fileID: 0}
   status: 0
   corner: {fileID: 0}
-  Dissolve: {fileID: 0}
+  Dissolve: {fileID: 2100000, guid: aad8e1633ee57b740a5dea56f384e5c7, type: 2}
+  receivedTotalBlocks: 0
 --- !u!114 &1196204844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14944,6 +14954,7 @@ MonoBehaviour:
   count_num: 2
   objtransform: {fileID: 303621174}
   Save_Point: {fileID: 0}
+  next_transform: {fileID: 0}
   dires: 
   next: 0
   last: 0
