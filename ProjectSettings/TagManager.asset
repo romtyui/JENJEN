@@ -15,6 +15,7 @@ TagManager:
   - brige
   - water
   - boat
+  - spring
   layers:
   - Default
   - TransparentFX

@@ -5,7 +5,6 @@ public class obstacles_code : MonoBehaviour
 {
     public Object_create_code OCC;
     public float height;
-    public MeshRenderer[] cubes;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

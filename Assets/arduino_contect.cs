@@ -32,6 +32,8 @@ public class arduino_contect : MonoBehaviour
 
     void Update()
     {
+        player_Control = GameObject.FindWithTag("Player").GetComponent<player_control>();
+
         if (sp != null && sp.IsOpen)
         {
             try

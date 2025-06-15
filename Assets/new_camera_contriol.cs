@@ -18,7 +18,7 @@ public class new_camera_contriol : MonoBehaviour
     public player_control player_Control;
     public No2_code n2;
     public GameObject  fuckcrocodiletwice;
-
+    public bool endtrun;
 
     public enum Now_Scenes { Crocodile, Crocodile_appear, SwitchToFall,first,remains_first,snake,snake2, remains, none }
     public Now_Scenes status;
@@ -184,6 +184,7 @@ public class new_camera_contriol : MonoBehaviour
 
                 if (t / camera_move_time[5] > 1)
                 {
+                    endtrun = true;
                     status = Now_Scenes.none;
                     t = 0f;
 
