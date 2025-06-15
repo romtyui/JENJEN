@@ -122,13 +122,22 @@ public class player_control : MonoBehaviour
                 
             else if (rank2)
             {
-                Debug.Log(other.gameObject.name);
-                //this.gameObject.transform.position = other.gameObject.transform.position;
-                count = other.gameObject.GetComponent<countpoint_code>().count_num;
-                next_Counter = other.gameObject.GetComponent<countpoint_code>().next;
-                last_Counter = other.gameObject.GetComponent<countpoint_code>().last;
-                turning_BT = false;
-                Newcamera.status = Now_Scenes.remains;
+                if (other.gameObject.name == "remains_turning2" && Newcamera.endtrun == true)
+                {
+                    //camera.status = cam1_Now_Scenes.camera1;
+                    //camera.selectedAngle = AngleOption.Deg0;
+                }
+                else 
+                {
+                    Debug.Log(other.gameObject.name);
+                    //this.gameObject.transform.position = other.gameObject.transform.position;
+                    count = other.gameObject.GetComponent<countpoint_code>().count_num;
+                    next_Counter = other.gameObject.GetComponent<countpoint_code>().next;
+                    last_Counter = other.gameObject.GetComponent<countpoint_code>().last;
+                    turning_BT = false;
+                    Newcamera.status = Now_Scenes.remains;
+                }
+                
 
             }
             else if (rank3)

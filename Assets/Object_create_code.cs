@@ -44,6 +44,8 @@ public class Object_create_code : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        IRS = GetComponent<Image_Recognition_script>();
+        player = GameObject.FindWithTag("Player");
         //int i = -1;
         ////���եΥN�X
         //if(IRS.TCP_Data != null) 
