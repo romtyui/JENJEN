@@ -10,6 +10,7 @@ public class first_animation : MonoBehaviour
     private int currentIndex = 0;
     private float currentTimer = 0f;
 
+    public boat_script boat_Script;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -63,6 +64,10 @@ public class first_animation : MonoBehaviour
                     foreach (var img in images)
                     {
                         this.gameObject.SetActive(false);
+                        if (boat_Script != null) 
+                        {
+                            boat_Script.stardo = true;
+                        }
                     }
 
                     // 若需要執行其他邏輯可在此加上，例如：

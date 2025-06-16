@@ -276,9 +276,13 @@ MonoBehaviour:
   objtransform: {fileID: 1570081259}
   Save_Point: {fileID: 0}
   next_transform: {fileID: 0}
+  last_transform: {fileID: 0}
+  next_transformses: []
+  last_transformses: []
   dires: 0100000002000000
   next: 0
   last: 0
+  num: 0
 --- !u!65 &21453975
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -490,9 +494,13 @@ MonoBehaviour:
   objtransform: {fileID: 0}
   Save_Point: {fileID: 0}
   next_transform: {fileID: 0}
+  last_transform: {fileID: 0}
+  next_transformses: []
+  last_transformses: []
   dires: 0200000003000000
   next: 0
   last: 0
+  num: 0
 --- !u!65 &73898580
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8035,9 +8043,13 @@ MonoBehaviour:
   objtransform: {fileID: 1653954424}
   Save_Point: {fileID: 0}
   next_transform: {fileID: 0}
+  last_transform: {fileID: 0}
+  next_transformses: []
+  last_transformses: []
   dires: 0300000004000000
   next: 0
   last: 0
+  num: 0
 --- !u!65 &507128811
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11960,14 +11972,19 @@ MonoBehaviour:
   maxY: 3
   moveTarget: {fileID: 0}
   moveSpeed: 2
+  requiredBlocks: 0
+  smoothBT: 0
+  startMoving: 0
   turning_number:
   - 0
   - 0
   speed: 20
   test: 1
+  debug: 0
   arduinor: {fileID: 1196204844}
   camera: {fileID: 339681901}
   Newcamera: {fileID: 0}
+  rank3_C: {fileID: 0}
   Endtransform: {fileID: 0}
 --- !u!95 &1094545099
 Animator:
@@ -14955,9 +14972,13 @@ MonoBehaviour:
   objtransform: {fileID: 303621174}
   Save_Point: {fileID: 0}
   next_transform: {fileID: 0}
+  last_transform: {fileID: 0}
+  next_transformses: []
+  last_transformses: []
   dires: 
   next: 0
   last: 0
+  num: 0
 --- !u!65 &1781072333
 BoxCollider:
   m_ObjectHideFlags: 0
