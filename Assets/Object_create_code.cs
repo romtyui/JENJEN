@@ -22,7 +22,7 @@ public class Object_create_code : MonoBehaviour
     private string lastTCPData = ""; // 上一筆 TCP 字串
 
     [SerializeField] private GameObject player; // 玩家 GameObject
-    [SerializeField] Transform Instantiat_Spawn; // 即時決定的生成點
+    [SerializeField]public Transform Instantiat_Spawn; // 即時決定的生成點
 
     // 建立辨識狀態（來自 Python 類型）
     public enum OrderStatus { Obstacle, Bridge,Spring, Triangle, Null };
@@ -48,21 +48,28 @@ public class Object_create_code : MonoBehaviour
 
         if (trunBT == true)
         {
-            // 如果接收到的資料與上次相同，累計計時器，否則歸零
-            if (IRS.TCP_Data == lastTCPData)
+            string[] parts = IRS.TCP_Data.Split('_');
+            if (parts.Length >= 3)
             {
-                detectionTimer += Time.deltaTime;
-            }
-            else
-            {
-                detectionTimer = 0f;
-                lastTCPData = IRS.TCP_Data;
+                string Obj_Data_name1 = parts[0]; // Obstacle 或 Bridge
+                string Color_Data_name1 = parts[1]; // 顏色
+                int.TryParse(parts[2], out int receivedTotalBlocks1); // 解析數量
+                                                                      // 如果接收到的資料與上次相同，累計計時器，否則歸零
+                if (Obj_Data_name1 == lastTCPData)
+                {
+                    detectionTimer += Time.deltaTime;
+                }
+                else
+                {
+                    detectionTimer = 0f;
+                    lastTCPData = Obj_Data_name1;
+                }
+
             }
 
             // 如果穩定資料達一定時間
             if (detectionTimer >= confirmationTime)
             {
-                string[] parts = IRS.TCP_Data.Split('_');
                 if (parts.Length >= 3)
                 {
                     Obj_Data_name = parts[0]; // Obstacle 或 Bridge
@@ -72,11 +79,18 @@ public class Object_create_code : MonoBehaviour
 
                 // 設定狀態
                 Status_Switch(Obj_Data_name);
-
-                // 取得當前轉角點作為生成位置
-                int i = player.gameObject.GetComponent<player_control>().count;
-                GameObject TF = player.gameObject.GetComponent<player_control>().Turning_points[i];
-                Instantiat_Spawn = TF.GetComponent<countpoint_code>().objtransform.transform;
+                if (player.GetComponent<player_control>().rank1) 
+                {
+                    // 取得當前轉角點作為生成位置
+                    int i = player.gameObject.GetComponent<player_control>().count;
+                    GameObject TF = player.gameObject.GetComponent<player_control>().Turning_points[i];
+                    Instantiat_Spawn = TF.GetComponent<countpoint_code>().objtransform.transform;
+                }
+                //else if (corner.rank1)
+                //{
+                //    // 取得當前轉角點作為生成位置
+                  
+                //}
 
                 // 呼叫生成方法
                 Status_List(Instantiat_Spawn);
@@ -113,18 +127,21 @@ public class Object_create_code : MonoBehaviour
             case OrderStatus.Obstacle:
                 // 生成障礙物並套用 dissolve 材質
                 GameObject obj = Instantiate(create_Objs[0], Instantiat_Spawn);
-                obj.GetComponent<MeshRenderer>().materials[0] = Dissolve;
+                // 複製材質陣列
+                Material[] mats = obj.GetComponent<MeshRenderer>().materials;
+                mats[0] = Dissolve; // 替換第一個為 Dissolve 材質
+                obj.GetComponent<MeshRenderer>().materials = mats; // 設定回去
 
                 // 設定顏色索引
-                if (Color_Data_name == "blue")
+                if (Color_Data_name == "BLUE")
                 {
                     obj.GetComponent<MeshRenderer>().materials[0].SetFloat("_Color", 1.0f);
                 }
-                else if (Color_Data_name == "red")
+                else if (Color_Data_name == "RED")
                 {
                     obj.GetComponent<MeshRenderer>().materials[0].SetFloat("_Color", 0f);
                 }
-                else if (Color_Data_name == "green")
+                else if (Color_Data_name == "GREEN")
                 {
                     obj.GetComponent<MeshRenderer>().materials[0].SetFloat("_Color", 2.0f);
                 }

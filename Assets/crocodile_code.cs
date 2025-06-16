@@ -59,12 +59,9 @@ public class crocodile_code : MonoBehaviour
             {
                 Debug.Log("§ì¨ì¤F¡I");
                 ResetChase();
-                collider.enabled = false; // °±¤î°lÂÜ
+                //collider.enabled = false; // °±¤î°lÂÜ
             }
-            if (this.transform == pos2)
-            {
-                collider.enabled = true; // °±¤î°lÂÜ
-            }
+         
         }
        
     }
@@ -72,14 +69,17 @@ public class crocodile_code : MonoBehaviour
     {
         transform.position = startPosition;
         currentSpeed = initialSpeed;
+        collider.enabled = true; // °±¤î°lÂÜ
+
         timer = 0f;
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "boat") 
         {
-            ResetChase();
             collider.enabled = false; // °±¤î°lÂÜ
+
+            ResetChase();
         }
     }
 }

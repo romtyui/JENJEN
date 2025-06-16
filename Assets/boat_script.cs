@@ -50,7 +50,8 @@ public class boat_script : MonoBehaviour
         }
         if (other.gameObject.tag == "event_checkpoint")
         {
-            stardo = false;
+            occ.Instantiat_Spawn = other.GetComponent<countpoint_code>().objtransform;
+            //stardo = false;
             if (other.GetComponent<countpoint_code>().Save_Point != null) 
             {
                 savepoint = other.GetComponent<countpoint_code>().Save_Point;

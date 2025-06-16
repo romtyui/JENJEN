@@ -17,7 +17,7 @@ public class arduino_contect : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
         player_Control = GameObject.FindWithTag("Player").GetComponent<player_control>();
 
-        sp = new SerialPort("COM6", 9600); // 請改成實際 Arduino 所連接的 COM 埠號
+        sp = new SerialPort("COM7", 9600); // 請改成實際 Arduino 所連接的 COM 埠號
         try
         {
             sp.Open();

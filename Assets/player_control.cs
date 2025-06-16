@@ -20,6 +20,8 @@ public class player_control : MonoBehaviour
     public int next_Counter,last_Counter,count;
     public bool turning_BT;
     public bool rank1,rank2,rank3;
+    [SerializeField] private float triggerThreshold = 3f; // 停留秒數門檻
+    private float triggerTimer = 0f; // 計時器
 
     [Header("第三關參數")]
     public float baseY = 0f;            // 原始高度
@@ -242,6 +244,10 @@ public class player_control : MonoBehaviour
                     restart_position = other.GetComponent<countpoint_code>().Save_Point;
 
                     //this.gameObject.transform.position = other.gameObject.transform.position;
+                    if (other.GetComponent<countpoint_code>().objtransform != null) 
+                    {
+                        OCC.Instantiat_Spawn = other.GetComponent<countpoint_code>().objtransform;
+                    }
                     count = other.gameObject.GetComponent<countpoint_code>().count_num;
                     next_Counter = other.gameObject.GetComponent<countpoint_code>().next;
                     last_Counter = other.gameObject.GetComponent<countpoint_code>().last;
@@ -262,14 +268,14 @@ public class player_control : MonoBehaviour
             other.GetComponent<Take_the_stairs_checkpoint>().TP_position.SetActive(false);
             
         }
-        if (other.gameObject.tag == "event_checkpoint")
-        {
-            OCC.trunBT = true;
-            if (other.GetComponent<countpoint_code>().Save_Point != null) 
-            {
-                restart_position = other.GetComponent<countpoint_code>().Save_Point;
-            }
-        }
+        //if (other.gameObject.tag == "event_checkpoint")
+        //{
+        //    OCC.trunBT = true;
+        //    if (other.GetComponent<countpoint_code>().Save_Point != null) 
+        //    {
+        //        restart_position = other.GetComponent<countpoint_code>().Save_Point;
+        //    }
+        //}
         if (other.gameObject.tag == "rock")
         {
             this.transform.position = restart_position.position;
@@ -277,6 +283,7 @@ public class player_control : MonoBehaviour
         if (other.gameObject.tag == "spring")
         {
             this.transform.position = restart_position.position;
+            Destroy(other.gameObject);
         }
         if (other.gameObject.tag == "event_end")
         {
@@ -286,6 +293,21 @@ public class player_control : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
+        if (other.gameObject.tag == "event_checkpoint")
+        {
+            triggerTimer += Time.deltaTime;
+
+            if (triggerTimer >= triggerThreshold)
+            {
+                OCC.trunBT = true;
+                triggerTimer = 0f; // 重置以便下次再次觸發
+            }
+
+            if (other.GetComponent<countpoint_code>().Save_Point != null)
+            {
+                restart_position = other.GetComponent<countpoint_code>().Save_Point;
+            }
+        }
         if (other.gameObject.tag == "Turning_poimt")
         {
             if (rank3)
@@ -345,6 +367,13 @@ public class player_control : MonoBehaviour
             }
         }
            
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "event_checkpoint")
+        {
+            triggerTimer = 0f; // 離開時清除計時器
+        }
     }
     IEnumerator WaitAndDoSomething(GameObject other)
     {
