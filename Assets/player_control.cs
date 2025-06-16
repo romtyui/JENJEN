@@ -29,19 +29,21 @@ public class player_control : MonoBehaviour
     public Transform moveTarget;        // 移動目標位置
     public float moveSpeed = 2.0f;      // 前進速度
     public int requiredBlocks;
+    public bool smoothBT;
 
-    private bool startMoving = false;   // 是否開始前進
+    [SerializeField] private bool startMoving = false;   // 是否開始前進
 
     [SerializeField] private float[] turning_number;
     [SerializeField]
     private float speed;
 
     [SerializeField]
-    public bool test;
+    public bool test, debug;
 
     public arduino_contect arduinor;
     public camera_control camera;
     public new_camera_contriol Newcamera;
+    public rank3_camera rank3_C;
     public Transform Endtransform;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -73,19 +75,60 @@ public class player_control : MonoBehaviour
                 if (!startMoving)
                 {
                     // 浮起階段
+                    baseY = transform.position.y;
                     int blocks = OCC.receivedTotalBlocks;
                     float targetY = baseY + blocks * risePerBlock;
+                    maxY = baseY+ requiredBlocks * 10;
 
                     // 限制不要超過 maxY
-                    targetY = Mathf.Min(targetY, maxY);
-
+                    //targetY = Mathf.Min(targetY, maxY);
+                    Debug.Log("targetY = " + targetY);
                     Vector3 targetPos = new Vector3(transform.position.x, targetY, transform.position.z);
                     transform.position = Vector3.Lerp(transform.position, targetPos, Time.deltaTime * smoothSpeed);
 
                     // 判斷是否達成移動條件
-                    if (transform.position.y >= maxY - 0.05f)  // 加點容錯
+                    if (transform.position.y >=  - 0.05f)  // 加點容錯
                     {
+                        transform.position = targetPos;
                         startMoving = true;
+                        if (count == 0) 
+                        {
+                            if (test)
+                            {
+                                rank3_C.status = rank3_camera.cam2_Now_Scenes.camera2;
+                            }
+
+                        }
+                        else if(count == 1)
+                        {
+                            if (test)
+                            {
+                                rank3_C.status = rank3_camera.cam2_Now_Scenes.camera3;
+                            }
+                            else
+                            {
+                                rank3_C.status = rank3_camera.cam2_Now_Scenes.camera1;
+                            }
+                        }
+                        else if (count == 2)
+                        {
+                            if (test)
+                            {
+                                rank3_C.status = rank3_camera.cam2_Now_Scenes.camera4;
+                            }
+                            else
+                            {
+                                rank3_C.status = rank3_camera.cam2_Now_Scenes.camera2;
+                            }
+                        }
+                        else if (count == 2)
+                        {
+                            if (test)
+                            {
+                                rank3_C.status = rank3_camera.cam2_Now_Scenes.camera4;
+                            }
+                            
+                        }
                     }
                 }
                 else
@@ -93,15 +136,26 @@ public class player_control : MonoBehaviour
                     // 往目標點移動
                     if (moveTarget != null)
                     {
-                        transform.position = Vector3.MoveTowards(transform.position, moveTarget.position, Time.deltaTime * moveSpeed);
+                        transform.position = Vector3.MoveTowards(this.transform.position, moveTarget.position, Time.deltaTime * moveSpeed);
 
                         if (Vector3.Distance(transform.position, moveTarget.position) < 0.1f)
                         {
-                            if (OCC.receivedTotalBlocks != requiredBlocks)
+                            if (OCC.receivedTotalBlocks != requiredBlocks && debug == false)
                             {
                                 this.transform.position = restart_position.position;
+                                startMoving = false;
+
+                                turning_BT = false;
 
                             }
+                            else 
+                            {
+                                smoothBT = true;
+                                startMoving = false;
+                                turning_BT = false;
+
+                            }
+
                         }
                     }
                 }
@@ -197,41 +251,6 @@ public class player_control : MonoBehaviour
                 
 
             }
-            else if (rank3)
-            {
-                requiredBlocks = other.gameObject.GetComponent<countpoint_code>().num;
-                if (other.GetComponent<countpoint_code>().Save_Point != null)
-                {
-                    restart_position = other.GetComponent<countpoint_code>().Save_Point;
-                }
-                if (test)
-                {
-                    if (other.gameObject.GetComponent<countpoint_code>().next_transform != null)
-                    {
-                        if (OCC.receivedTotalBlocks > requiredBlocks)
-                        {
-                            moveTarget = other.gameObject.GetComponent<countpoint_code>().transformses[0];
-                        }
-                        else if (OCC.receivedTotalBlocks < requiredBlocks)
-                        {
-                            moveTarget = other.gameObject.GetComponent<countpoint_code>().transformses[1];
-                        }
-                        else 
-                        {
-                            moveTarget = other.gameObject.GetComponent<countpoint_code>().next_transform;
-                        }
-                    }
-                }
-                else
-                {
-                    if (other.gameObject.GetComponent<countpoint_code>().last_transform != null) 
-                    {
-                        moveTarget = other.gameObject.GetComponent<countpoint_code>().last_transform;
-                    }
-
-
-                }
-            }
             
         }
         if (other.gameObject.tag == "Teleport_point")
@@ -264,6 +283,68 @@ public class player_control : MonoBehaviour
             turning_BT = false ;
             this.gameObject.transform.position = Turning_points[count].transform.position;
         }
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Turning_poimt")
+        {
+            if (rank3)
+            {
+                if (smoothBT) 
+                {
+                    requiredBlocks = other.gameObject.GetComponent<countpoint_code>().num;
+                    count = other.gameObject.GetComponent<countpoint_code>().count_num;
+
+                    smoothBT = false ;
+                }
+                rank3_C.num = other.gameObject.GetComponent<countpoint_code>().count_num;
+
+                if (other.GetComponent<countpoint_code>().Save_Point != null)
+                {
+                    restart_position = other.GetComponent<countpoint_code>().Save_Point;
+                }
+                if (test)
+                {
+                    if (other.gameObject.GetComponent<countpoint_code>().next_transform != null)
+                    {
+                        rank3_C.num = other.gameObject.GetComponent<countpoint_code>().num;
+                        if (OCC.receivedTotalBlocks > requiredBlocks && debug == false)
+                        {
+                            moveTarget = other.gameObject.GetComponent<countpoint_code>().next_transformses[0];
+                        }
+                        else if (OCC.receivedTotalBlocks < requiredBlocks && debug == false)
+                        {
+                            moveTarget = other.gameObject.GetComponent<countpoint_code>().next_transformses[1];
+                        }
+                        else if (OCC.receivedTotalBlocks == requiredBlocks || debug == true)
+                        {
+                            moveTarget = other.gameObject.GetComponent<countpoint_code>().next_transform;
+                        }
+                    }
+                }
+                else
+                {
+                    if (other.gameObject.GetComponent<countpoint_code>().last_transform != null)
+                    {
+                        if (OCC.receivedTotalBlocks > requiredBlocks && debug == false)
+                        {
+                            moveTarget = other.gameObject.GetComponent<countpoint_code>().last_transformses[0];
+                        }
+                        else if (OCC.receivedTotalBlocks < requiredBlocks && debug == false)
+                        {
+                            moveTarget = other.gameObject.GetComponent<countpoint_code>().last_transformses[1];
+                        }
+                        else if (OCC.receivedTotalBlocks == requiredBlocks || debug == true)
+                        {
+                            moveTarget = other.gameObject.GetComponent<countpoint_code>().last_transform;
+                        }
+                    }
+
+
+                }
+            }
+        }
+           
     }
     IEnumerator WaitAndDoSomething(GameObject other)
     {
